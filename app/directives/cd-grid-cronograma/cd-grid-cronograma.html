@@ -1,0 +1,43 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">Cronograma</div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Hora
+                </th>
+                <th>
+                    Lunes
+                </th>
+                <th>
+                    Martes
+                </th>
+                <th>
+                    Miércoles
+                </th>
+                <th>
+                    Jueves
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in data">
+                <td>
+                    {{ item.hora }}
+                </td>
+                <td>
+                    {{ item.lunes }}
+                </td>
+                <td>
+                    {{ item.martes }}
+                </td>
+                <td>
+                    {{ item.miercoles }}
+                </td>
+                <td>
+                    {{ item.jueves }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
