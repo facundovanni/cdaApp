@@ -2,16 +2,279 @@
 <html ng-app='demo'>
     <head>
         <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <link rel="stylesheet" href="alumno.css"/>
+        <link rel="stylesheet" href="checkbox.css"/>
         <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        
+        <!-- ANGULAR -->
         <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.js'></script>
         <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-resource.js'></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-messages.min.js"></script>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.9/angular-material.min.js"></script>
+        
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+        
+        <script src="dialog.js"></script>
         <script src="alumno.js"></script>
+        <script src="checkbox.js"></script>
+        
 
         <title>Alumnos</title>
     </head>
 
-    <body >
-        <div ng-controller='test'>
+    <body>
+
+        <div class="text-center"  ng-controller='dialogo' layout="row" ng-cloak>
+                <h4 style="margin-left:20px;">
+                    <button class="btn btn-primary center-block" ng-click="showConfirm($event)"  >
+                    Borrar
+                    </button>
+                </h4>
+
+        </div>
+
+        <div class="row">
+                <div class="col-sm-12">
+                  <div class="text-center" ng-controller='dialogo' ng-cloak>
+                    <button class="btn btn-primary center-block" ng-click="showConfirm($event)"  >
+                            Borrar
+                            </button>
+                  </div>
+                </div>       
+        </div>
+
+        <table class="table">
+            <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                    </tr>
+            </thead>
+            <tbody ng-controller='test'>
+                <tr ng-repeat='result in results'>
+                    <th>
+                        <div class="checkbox">
+                            <label style="font-size: 1em">
+                                <input type="checkbox" value="{{result.legajo}}" checked>
+                                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                            </label>
+                        </div>
+                    </th>
+                    <th> {{ result.name }}</th>          
+                </tr>
+            </tbody>
+            
+        </table>
+
+            <div class="checkbox">
+                    <label style="font-size: 2em">
+                        <input type="checkbox" value="" checked>
+                        <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                        Big
+                    </label>
+                </div>
+
+            <div>
+                    <form action="#" method="get">
+                        <div class="input-group">
+                            <!-- USE TWITTER TYPEAHEAD JSON WITH API TO SEARCH -->
+                            <input class="form-control" id="system-search" name="q" placeholder="Search for" required>
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="form-check">
+                        <input type="checkbox" class="filled-in form-check-input" id="checkbox101" checked="checked">
+                        <label class="form-check-label" for="checkbox101">Filled-in checkbox</label>
+                    </div>
+
+                    <div class="checkbox">
+                            <label style="font-size: 2.5em">
+                                <input type="checkbox" value="" checked>
+                                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                Huge
+                            </label>
+                        </div>
+
+                <section class="content">
+                        <h1>Table Filter</h1>
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="pull-right">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-success btn-filter" data-target="pagado">Pagado</button>
+                                            <button type="button" class="btn btn-warning btn-filter" data-target="pendiente">Pendiente</button>
+                                            <button type="button" class="btn btn-danger btn-filter" data-target="cancelado">Cancelado</button>
+                                            <button type="button" class="btn btn-default btn-filter" data-target="all">Todos</button>
+                                        </div>
+                                    </div>
+                                    <div class="table-container">
+                                        <table class="table table-filter">
+                                            <tbody>
+                                                <tr data-status="pagado">
+                                                    <td>
+                                                        <div class="ckbox">
+                                                            <input type="checkbox" class="filled-in form-check-input" id="checkbox101" checked="checked">
+                                                            <label for="checkbox1"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <a href="javascript:;" class="star">
+                                                            <i class="glyphicon glyphicon-star"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <div class="media">
+                                                            <a href="#" class="pull-left">
+                                                                <img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo">
+                                                            </a>
+                                                            <div class="media-body">
+                                                                <span class="media-meta pull-right">Febrero 13, 2016</span>
+                                                                <h4 class="title">
+                                                                    Lorem Impsum
+                                                                    <span class="pull-right pagado">(Pagado)</span>
+                                                                </h4>
+                                                                <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr data-status="pendiente">
+                                                    <td>
+                                                        <div class="ckbox">
+                                                            <input type="checkbox" id="checkbox3">
+                                                            <label for="checkbox3"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <a href="javascript:;" class="star">
+                                                            <i class="glyphicon glyphicon-star"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <div class="media">
+                                                            <a href="#" class="pull-left">
+                                                                <img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo">
+                                                            </a>
+                                                            <div class="media-body">
+                                                                <span class="media-meta pull-right">Febrero 13, 2016</span>
+                                                                <h4 class="title">
+                                                                    Lorem Impsum
+                                                                    <span class="pull-right pendiente">(Pendiente)</span>
+                                                                </h4>
+                                                                <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr data-status="cancelado">
+                                                    <td>
+                                                        <div class="ckbox">
+                                                            <input type="checkbox" id="checkbox2">
+                                                            <label for="checkbox2"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <a href="javascript:;" class="star">
+                                                            <i class="glyphicon glyphicon-star"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <div class="media">
+                                                            <a href="#" class="pull-left">
+                                                                <img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo">
+                                                            </a>
+                                                            <div class="media-body">
+                                                                <span class="media-meta pull-right">Febrero 13, 2016</span>
+                                                                <h4 class="title">
+                                                                    Lorem Impsum
+                                                                    <span class="pull-right cancelado">(Cancelado)</span>
+                                                                </h4>
+                                                                <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr data-status="pagado" class="selected">
+                                                    <td>
+                                                        <div class="ckbox">
+                                                            <input type="checkbox" id="checkbox4" checked>
+                                                            <label for="checkbox4"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <a href="javascript:;" class="star star-checked">
+                                                            <i class="glyphicon glyphicon-star"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <div class="media">
+                                                            <a href="#" class="pull-left">
+                                                                <img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo">
+                                                            </a>
+                                                            <div class="media-body">
+                                                                <span class="media-meta pull-right">Febrero 13, 2016</span>
+                                                                <h4 class="title">
+                                                                    Lorem Impsum
+                                                                    <span class="pull-right pagado">(Pagado)</span>
+                                                                </h4>
+                                                                <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr data-status="pendiente">
+                                                    <td>
+                                                        <div class="ckbox">
+                                                            <input type="checkbox" id="checkbox5">
+                                                            <label for="checkbox5"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <a href="javascript:;" class="star">
+                                                            <i class="glyphicon glyphicon-star"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <div class="media">
+                                                            <a href="#" class="pull-left">
+                                                                <img src="https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg" class="media-photo">
+                                                            </a>
+                                                            <div class="media-body">
+                                                                <span class="media-meta pull-right">Febrero 13, 2016</span>
+                                                                <h4 class="title">
+                                                                    Lorem Impsum
+                                                                    <span class="pull-right pendiente">(Pendiente)</span>
+                                                                </h4>
+                                                                <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-footer">
+                                <p>
+                                    Page © - 2016 <br>
+                                    Powered By <a href="https://www.facebook.com/tavo.qiqe.lucero" target="_blank">TavoQiqe</a>
+                                </p>
+                            </div>
+                        </div>
+                    </section> 
+
+        <div ng-controller=''>
             <div ng-repeat='result in results'>
                 <p class="list-group-item">{{ result.name }} wrote {{ results.length }} albums:</p>
              </div>

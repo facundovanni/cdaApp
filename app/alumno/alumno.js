@@ -1,5 +1,5 @@
 // tag::module[]
-var app = angular.module('demo', ['ngResource']);
+var app = angular.module('demo', ['ngResource', 'ngMaterial']);
 // end::module[]
 
 // tag::factory[]
@@ -18,3 +18,6 @@ app.controller("test", function($scope, results) {
     });
 });
 // end::controller[]
+
+
+
