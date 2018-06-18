@@ -19,5 +19,3 @@ app.controller("test", function($scope, results) {
 });
 // end::controller[]
 
-
-
