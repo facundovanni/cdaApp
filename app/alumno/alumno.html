@@ -1,100 +1,104 @@
 <!doctype html>
-<html ng-app='demo'>
-    <head>
+<html ng-app='AppAlumno'>
 
-            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+<head>
 
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
-        <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" />
-        <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-        <link rel="stylesheet" href="alumno.css"/>
-        <link rel="stylesheet" href="checkbox.css"/>
-        
-        
-        <!-- ANGULAR -->
-        <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.js'></script>
-        <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-resource.js'></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-animate.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-aria.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-messages.min.js"></script>
-        
-        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.9/angular-material.min.js"></script>
-        
-        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="alumno.css" />
+    <link rel="stylesheet" href="checkbox.css" />
 
-       
+    <!-- ANGULAR -->
+    <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.js'></script>
+    <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-resource.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-messages.min.js"></script>
 
-        
-        
-        <script src="alumno.js"></script>
-        <script src="checkbox.js"></script>
-        
-        
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.9/angular-material.min.js"></script>
 
-        <title>Alumnos</title>
-    </head>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
 
-    <body>
-            
-        <div class="text-center">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                    Borrar
+    <script src="alumno.js"></script>
+    <script src="checkbox.js"></script>
+
+    <title>Alumnos</title>
+</head>
+
+<body>
+
+    <div ng-controller='test'>
+
+        <div ng-controller="BorrarAlumnoController">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" ng-click="submit(results)">
+                Borrar
             </button>
-        </div>
+            <!-- The Modal -->
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
 
-            
-                  
-                   <!-- The Modal -->
-  <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-          
-            <!-- Modal Header -->
-            <div class="modal-header">
-              <h4 class="modal-title">Modal Heading</h4>
-              <button type="button" class="close" data-dismiss="modal">×</button>
-            </div>
-            
-            <!-- Modal body -->
-            <div class="modal-body">
-              Modal body..
-            </div>
-            
-            <!-- Modal footer -->
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
-            
-          </div>
-        </div>
-      </div>
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Modal Heading</h4>
+                            <button type="button" class="close" data-dismiss="modal">×</button>
+                        </div>
 
+                        <!-- Modal body -->
+                        <div class="modal-body" ng-repeat="alumno in alumnos">
+                            {{ alumno.name }}
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <table class="table">
             <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Apellido</th>
-                    </tr>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                </tr>
             </thead>
-            <tbody ng-controller='test'>
-                <tr ng-repeat='result in results'>
+            <tbody>
+                <tr ng-repeat='alumno in results'>
                     <th>
                         <div class="checkbox">
                             <label style="font-size: 1em">
-                                <input type="checkbox" value="{{result.legajo}}">
-                                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                <input type="checkbox" value="{{alumno.legajo}}" id="{{alumno.legajo}}" ng-model="alumno.selected" ng-false-value="''">
+                                <span class="cr">
+                                    <i class="cr-icon fa fa-check"></i>
+                                </span>
                             </label>
                         </div>
                     </th>
-                    <th> {{ result.name }}</th>          
+                    <th> {{ alumno.name }}</th>
                 </tr>
+
+
             </tbody>
-            
+
         </table>
-    </body>
+
+    </div>
+
+    </div>
+
+</body>
+
 </html>
