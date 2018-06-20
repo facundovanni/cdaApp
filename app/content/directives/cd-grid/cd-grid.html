@@ -3,20 +3,8 @@
     <table class="table">
         <thead>
             <tr>
-                <th>
-                    Hora
-                </th>
-                <th>
-                    Lunes
-                </th>
-                <th>
-                    Martes
-                </th>
-                <th>
-                    Miércoles
-                </th>
-                <th>
-                    Jueves
+                <th ng-repeat="column in columns">
+                    {{ column.name }}
                 </th>
             </tr>
         </thead>
