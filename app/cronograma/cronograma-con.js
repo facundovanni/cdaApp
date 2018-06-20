@@ -1,15 +1,5 @@
 'use strict';
-
-angular.module('cdApp.cronograma', ['ngRoute'])
-
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/cronograma', {
-    templateUrl: 'cronograma/cronograma.html',
-    controller: 'CronogramaController'
-  });
-}])
-
-.controller('CronogramaController', ['$scope', function($scope) {
+angular.module('cdApp', ['ngRoute']).controller('CronogramaController', ['$scope', function($scope) {
   $scope.data = [{
     hora: '1',
     lunes: 'DS',
