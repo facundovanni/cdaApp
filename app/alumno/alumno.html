@@ -2,7 +2,6 @@
 <html ng-app='AppAlumno'>
 
 <head>
-
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -34,13 +33,12 @@
 </head>
 
 <body>
-
     <div ng-controller='test'>
 
         <div ng-controller="BorrarAlumnoController">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" ng-click="submit(results)">
-                Borrar
-            </button>
+
+
+
             <!-- The Modal -->
             <div class="modal fade" id="myModal">
                 <div class="modal-dialog">
@@ -65,40 +63,40 @@
                     </div>
                 </div>
             </div>
+
+
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">
+                            <button type="button" id="div1" style="display:none" class="btn btn-primary" data-toggle="modal" data-target="#myModal" ng-click="submit(results)">
+                                Borrar
+                            </button>
+                        </th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat='alumno in results'>
+                        <th>
+                            <div class="checkbox">
+                                <label style="font-size: 1em">
+                                    <input type="checkbox" name="c1" value="{{alumno.legajo}}" id="{{alumno.legajo}}" ng-model="alumno.selected" onclick="showMe('div1')">
+                                    <span class="cr">
+                                        <i class="cr-icon fa fa-check"></i>
+                                    </span>
+                                </label>
+                            </div>
+                        </th>
+                        <th> {{ alumno.name }}</th>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat='alumno in results'>
-                    <th>
-                        <div class="checkbox">
-                            <label style="font-size: 1em">
-                                <input type="checkbox" value="{{alumno.legajo}}" id="{{alumno.legajo}}" ng-model="alumno.selected" ng-false-value="''">
-                                <span class="cr">
-                                    <i class="cr-icon fa fa-check"></i>
-                                </span>
-                            </label>
-                        </div>
-                    </th>
-                    <th> {{ alumno.name }}</th>
-                </tr>
-
-
-            </tbody>
-
-        </table>
-
     </div>
-
     </div>
-
+    </div>
 </body>
 
 </html>

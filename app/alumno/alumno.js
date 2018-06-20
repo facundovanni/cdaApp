@@ -16,6 +16,8 @@ app.controller("test", function($scope, results) {
     }, function(err) {
         console.error("Error occured: ", err);
     });
+
+    
 });
 // end::controller[]
 
@@ -39,3 +41,26 @@ app.controller('BorrarAlumnoController', ['$scope', function ($form) {
     }
 } ]
 );
+
+app.controller('checkController', function($scope) {
+    $scope.hide = false;
+    $scope.checkboxClick = function() {
+      $scope.hide = !$scope.hide;
+    };
+
+  });
+
+  function showMe (box) {
+        
+    var chboxs = document.getElementsByName("c1");
+    var vis = "none";
+    for(var i in chboxs) { 
+        if(chboxs[i].checked){
+         vis = "block";
+            break;
+        }
+    }
+    document.getElementById(box).style.display = vis;
+
+
+}
