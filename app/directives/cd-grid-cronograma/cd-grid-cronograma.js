@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('cdApp.cdGridCronograma',[])
+angular.module('cdApp',[])
 
 .directive('cdGridCronograma',function(){
     return{

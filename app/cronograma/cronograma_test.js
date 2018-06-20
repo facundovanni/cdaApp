@@ -2,7 +2,7 @@
 
 describe('cdApp.cronograma module', function() {
 
-  beforeEach(module('cdApp.cronograma'));
+  beforeEach(module('cdApp'));
 
   describe('cronograma controller', function(){
 
