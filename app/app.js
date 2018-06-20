@@ -3,10 +3,10 @@
 // Declare app level module which depends on views, and components
 angular.module('cdApp', [
   'ngRoute',
-  'cdApp.cronograma',
+  'ngMaterial',
   'cdApp.view2',
-  'cdApp.version',
-  'cdApp.cdGridCronograma'
+  'cdApp.alumno'
+  
 ]).
   config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');

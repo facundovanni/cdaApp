@@ -1,0 +1,23 @@
+div.div1 {
+    width: 11em; 
+    word-break: break-all;
+}
+
+table {
+    width: 100%; 
+    text-align: justify;
+  }
+
+td {
+    margin-right: 15px;
+  }
+
+/*    --------------------------------------------------
+	:: General
+	-------------------------------------------------- */
+    body {
+        font-family: 'Open Sans', sans-serif;
+        color: #353535;
+    }
+   
+    
