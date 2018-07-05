@@ -1,7 +1,5 @@
 <div ng-controller="BorrarAlumnoController">
 
-
-
     <!-- The Modal -->
     <div class="modal fade" id="myModal">
         <div class="modal-dialog">
@@ -9,7 +7,7 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Modal Heading</h4>
+                    <h4 class="modal-title">Alummnos seleccionados:</h4>
                     <button type="button" class="close" data-dismiss="modal">×</button>
                 </div>
 
@@ -20,7 +18,8 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger">Eliminar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 </div>
 
             </div>
@@ -28,21 +27,24 @@
     </div>
 
 
-    <table class="table">
+    <table class="table table-fit">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">
-                    <button type="button" id="div1" style="display:none" class="btn btn-primary" data-toggle="modal" data-target="#myModal" ng-click="submit(results)">
-                        Borrar
+                    <button type="button" id="div1" style="display:none; background-color:transparent" class="btn" data-toggle="modal" data-target="#myModal"
+                        ng-click="submit(results)">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
                     </button>
+
                 </th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellido</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat='alumno in results'>
-                <th>
+                <td>
                     <div class="checkbox">
                         <label style="font-size: 1em">
                             <input type="checkbox" name="c1" value="{{alumno.legajo}}" id="{{alumno.legajo}}" ng-model="alumno.selected" onclick="showMe('div1')">
@@ -51,11 +53,13 @@
                             </span>
                         </label>
                     </div>
-                </th>
-                <th> {{ alumno.name }}</th>
+                    </th>
+                    <td> {{ alumno.name }}</th>
             </tr>
         </tbody>
     </table>
 </div>
 </div>
+
+
 </div>
