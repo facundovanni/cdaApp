@@ -40,7 +40,9 @@
         "angular-ui-bootstrap": "^2.5.6",
         "bootstrap": "^4.1.1",
         "http": "0.0.0",
+        "jquery": "^1.9.1",
         "npm": "^6.1.0",
+        "popper.js": "^1.14.3",
         "resource": "^0.8.1",
         "server": "^1.0.18"
     }
