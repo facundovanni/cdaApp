@@ -1,17 +1,28 @@
-button.div1 {
-    padding: 0%
+#eliminar {
+    padding: 0%;
+    display: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
 }
 
-table {
+.table {
     width: 100%; 
     text-align: justify;
     table-layout:fixed;
+    padding-top: 10px
   }
 
 
 td {
     margin-right: 15px;
+  
   }
+
+th {
+    width: 100%; 
+    table-layout:fixed;
+}
 
 /*    --------------------------------------------------
 	:: General

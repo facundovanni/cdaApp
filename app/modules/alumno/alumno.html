@@ -31,11 +31,7 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col">
-                    <button type="button" id="div1" style="display:none; background-color:transparent" class="btn" data-toggle="modal" data-target="#myModal"
-                        ng-click="submit(results)">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                    </button>
-
+                    <i class="fa fa-trash" aria-hidden="true" ng-click="submit(results)" data-toggle="modal" data-target="#myModal" id="eliminar"></i>
                 </th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellido</th>
@@ -47,14 +43,20 @@
                 <td>
                     <div class="checkbox">
                         <label style="font-size: 1em">
-                            <input type="checkbox" name="c1" value="{{alumno.legajo}}" id="{{alumno.legajo}}" ng-model="alumno.selected" onclick="showMe('div1')">
+                            <input type="checkbox" name="c1" value="{{alumno.legajo}}" id="{{alumno.legajo}}" ng-model="alumno.selected" onclick="showMe('eliminar')">
                             <span class="cr">
                                 <i class="cr-icon fa fa-check"></i>
                             </span>
                         </label>
                     </div>
-                    </th>
-                    <td> {{ alumno.name }}</th>
+                </td>
+                <td> {{ alumno.name }}</td>
+
+                <td></td>
+
+                <td>
+                    <button type="button" class="btn btn-xs" ng-click="editDialog.open(person)">Editar</button>
+                </td>
             </tr>
         </tbody>
     </table>
