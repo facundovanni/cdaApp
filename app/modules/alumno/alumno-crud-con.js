@@ -19,17 +19,15 @@ angular.module('cdApp.alumno').controller('BorrarAlumnoController', ['$scope', f
 }]
 );
 
-function showMe (box) {
-        
+function showMe(box) {
+
     var chboxs = document.getElementsByName("c1");
     var vis = "none";
-    for(var i in chboxs) { 
-        if(chboxs[i].checked){
-         vis = "block";
+    for (var i in chboxs) {
+        if (chboxs[i].checked) {
+            vis = "block";
             break;
         }
     }
     document.getElementById(box).style.display = vis;
-
-
 }

@@ -18,7 +18,7 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger">Eliminar</button>
+                    <button type="button" class="btn btn-danger" ng-click="deleteAlums(alumnos)">Eliminar</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 </div>
 
@@ -50,18 +50,15 @@
                         </label>
                     </div>
                 </td>
-                <td> {{ alumno.name }}</td>
-
-                <td></td>
-
+                <td> {{ alumno.name }} </td>
+                <td> {{ alumno.surname }} </td>
                 <td>
                     <button type="button" class="btn btn-xs" ng-click="editDialog.open(person)">Editar</button>
                 </td>
             </tr>
         </tbody>
     </table>
-</div>
-</div>
 
-
+    <nav mfb-menu position="br" effect="zoomin" label="Agregar Alumno" active-icon="ion-plus-round" resting-icon="ion-plus-round"
+        toggling-method="click"  ></nav>
 </div>

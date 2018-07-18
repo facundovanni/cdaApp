@@ -2,8 +2,8 @@
     padding: 0%;
     display: none;
     background-color: transparent;
-    cursor: pointer;
-    outline: none;
+    cursor: pointer; /* cursor como si fuera un link*/
+    outline: none; /* no se marcan bordes azules cuando haces click */
 }
 
 .table {
@@ -13,15 +13,8 @@
     padding-top: 10px
   }
 
-
 td {
     margin-right: 15px;
-  
-  }
-
-th {
-    width: 100%; 
-    table-layout:fixed;
 }
 
 /*    --------------------------------------------------
