@@ -19,6 +19,39 @@ angular.module('cdApp.alumno').controller('AlumnosController', function ($scope,
 
     });
 
+    $scope.createAlum = (alumno) => {
+
+        const alum = {
+            "name": alumno.name,
+            "surname": alumno.surname
+        }
+
+        Alumnos.createAlumno(alum).then(function successCallback(response) {
+
+            $(document).ready(function () {
+                $("#modalCrearAlumno").modal('hide');
+            });
+
+            $scope.alumno = null;
+
+            Alumnos.getAlumnos().then(function successCallback(response) {
+
+                $scope.results = response.data;
+
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+
+            });
+
+
+        }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+
+        });
+    }
+
     $scope.updateAlum = (alumno) => {
 
         const editAlum = {

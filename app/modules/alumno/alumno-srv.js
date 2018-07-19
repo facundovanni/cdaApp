@@ -1,9 +1,3 @@
-// tag::module[]
-/*angular.module('cdApp.alumno')
-    .factory('Alumnos', function ($resource) {
-        return $resource("http://LAPTOP-BQPLIEJU:8080/alumnos");
-    });*/
-
 angular.module('cdApp.alumno')
     .factory('Alumnos', function ($http) {
 

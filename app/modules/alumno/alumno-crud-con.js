@@ -8,20 +8,16 @@ angular.module('cdApp.alumno').controller('BorrarAlumnoController', ['$scope', f
             }
         });
 
-        // SHOW THE SELECTED ITEMS IN THE EXPRESSION.
-        /*  if (alumnos.length > 0)
-             $form.the_list = alumnos;
-         else
-             $form.the_list = 'Please choose an option'; */
-
-        $form.alumnos;
+         $form.alumnos;
     }
 
     $form.showModalEditAlum = (alumno) => {
-        
         $("#modalEditarAlumno").show();
-        $form.alumno = alumno;
-          
+        $form.alumno = alumno; 
+    }
+
+    $form.showModalCrearAlum = function() {
+        $("#modalCrearAlumno").show();
     }
 }]
 );

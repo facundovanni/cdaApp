@@ -26,8 +26,45 @@
         </div>
     </div>
 
-     <!-- EDIT Modal -->
-     <div class="modal fade" id="modalEditarAlumno">
+    <!-- CREATE Modal -->
+    <div class="modal fade" id="modalCrearAlumno">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Agregue su nuevo Alumno</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form>
+                        <label for="firstName">Nombre: </label>
+                        <br/>
+                        <input type="text" id="firstName" ng-model="alumno.name" />
+                        <br />
+
+                        <label for="lastName">Apellido: </label>
+                        <br/>
+                        <input type="text" id="lastName" ng-model="alumno.surname" />
+                        <br />
+
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" ng-click="createAlum(alumno)">Crear</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- EDIT Modal -->
+    <div class="modal fade" id="modalEditarAlumno">
         <div class="modal-dialog">
             <div class="modal-content">
 
@@ -40,13 +77,17 @@
                 <!-- Modal body -->
                 <div class="modal-body">
                     <form>
-                        <label for="firstName">Nombre: </label><br/>
-                        <input type="text" id="firstName" ng-model="alumno.name"/> <br />
-            
-                        <label for="lastName">Apellido: </label><br/>
-                        <input type="text" id="lastName" ng-model="alumno.surname"/> <br />
-                    
-                      </form>
+                        <label for="firstName">Nombre: </label>
+                        <br/>
+                        <input type="text" id="firstName" ng-model="alumno.name" />
+                        <br />
+
+                        <label for="lastName">Apellido: </label>
+                        <br/>
+                        <input type="text" id="lastName" ng-model="alumno.surname" />
+                        <br />
+
+                    </form>
                 </div>
 
                 <!-- Modal footer -->
@@ -86,12 +127,14 @@
                 <td> {{ alumno.name }} </td>
                 <td> {{ alumno.surname }} </td>
                 <td>
-                    <button type="button" class="btn btn-xs" ng-click="showModalEditAlum(alumno)" data-target="#modalEditarAlumno"  data-toggle="modal" >Editar</button>
+                    <button type="button" class="btn btn-xs" ng-click="showModalEditAlum(alumno)" data-target="#modalEditarAlumno" data-toggle="modal">Editar</button>
                 </td>
             </tr>
         </tbody>
     </table>
 
-    <nav mfb-menu position="br" effect="zoomin" label="Agregar Alumno" active-icon="ion-plus-round" resting-icon="ion-plus-round"
-        toggling-method="click"  ></nav>
+    <a class="float" ng-click="showModalCrearAlum()" data-target="#modalCrearAlumno" data-toggle="modal">
+        <i class="fa fa-plus my-float"></i>
+    </a>
+
 </div>
