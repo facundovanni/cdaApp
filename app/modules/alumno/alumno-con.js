@@ -21,6 +21,8 @@ angular.module('cdApp.alumno').controller('AlumnosController', function ($scope,
 
     $scope.createAlum = (alumno) => {
 
+        document.forms["myForm"].reset();
+
         const alum = {
             "name": alumno.name,
             "surname": alumno.surname
@@ -29,13 +31,13 @@ angular.module('cdApp.alumno').controller('AlumnosController', function ($scope,
         Alumnos.createAlumno(alum).then(function successCallback(response) {
 
             $(document).ready(function () {
+                
                 $("#modalCrearAlumno").modal('hide');
             });
 
-            $scope.alumno = null;
-
             Alumnos.getAlumnos().then(function successCallback(response) {
 
+                $scope.alumno = {};
                 $scope.results = response.data;
 
             }, function errorCallback(response) {
@@ -61,6 +63,8 @@ angular.module('cdApp.alumno').controller('AlumnosController', function ($scope,
         }
 
         Alumnos.updateAlumnos(editAlum).then(function successCallback(response) {
+
+            document.forms["myForm"].reset();
 
             $(document).ready(function () {
                 $("#modalEditarAlumno").modal('hide');
