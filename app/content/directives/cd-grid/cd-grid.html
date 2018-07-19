@@ -1,32 +1,15 @@
-
-<div class="panel panel-primary">
-    <div class="panel-heading">Cronograma</div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th ng-repeat="column in columns">
-                    {{ column.name }}
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="item in data">
-                <td>
-                    {{ item.hora }}
-                </td>
-                <td>
-                    {{ item.lunes }}
-                </td>
-                <td>
-                    {{ item.martes }}
-                </td>
-                <td>
-                    {{ item.miercoles }}
-                </td>
-                <td>
-                    {{ item.jueves }}
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<div ng-controller="cdGridController">
+    <div>Cronograma</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs" ng-repeat="column in columns">
+                {{ column.name }}
+            </div>
+        </div>
+        <div class="row" ng-repeat="items in data">
+            <div class="col-xs" ng-repeat="item in items track by $index">
+                {{item}}
+            </div>
+        </div>
+    </div>
 </div>

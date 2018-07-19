@@ -1,4 +1,4 @@
-angular.module('cdApp.alumno').controller('BorrarAlumnoController', ['$scope', function ($form) {
+angular.module('cdApp.alumno').controller('AlumnoCRUDController', ['$scope', function ($form) {
     $form.submit = function (list) {
         $form.alumnos = [];
 

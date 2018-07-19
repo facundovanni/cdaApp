@@ -4,11 +4,12 @@
 angular.module('cdApp', [
   'ngRoute',
   'ngMaterial',
+  'ui.grid',
+  'ui.router',
   'cdApp.view2',
   'cdApp.alumno',
   'cdApp.cronograma',
   'cdApp.directives'
-  
 ]).
   config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');

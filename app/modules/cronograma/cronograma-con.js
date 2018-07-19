@@ -5,62 +5,36 @@ angular.module('cdApp.cronograma').controller('CronogramaController', ['$scope',
 
   that.data = [
     {
-      hora: '1',
-      lunes: 'DS',
-      martes: 'IT',
-      miercoles: 'AP',
-      jueves: 'T6'
-    }, {
-      hora: '2',
-      lunes: 'DS',
-      martes: 'IT',
-      miercoles: 'AP',
-      jueves: 'T6'
-    }, {
-      hora: '3',
-      lunes: 'DS',
-      martes: 'IT',
-      miercoles: 'AP',
-      jueves: 'T6'
-    }, {
-      hora: '4',
-      lunes: 'DS',
-      martes: 'IT',
-      miercoles: 'AP',
-      jueves: 'T6'
-    }, {
-      hora: '5',
-      lunes: 'DS',
-      martes: 'TS',
-      miercoles: 'OP',
-      jueves: 'TS'
-    }, {
-      hora: '6',
-      lunes: 'DS',
-      martes: 'TS',
-      miercoles: 'OP',
-      jueves: 'TS'
+        firstName: "Cox",
+        lastName: "Carney",
+        company: "Enormo",
+        employed: true
+    },
+    {
+        firstName: "Lorraine",
+        lastName: "Wise",
+        company: "Comveyer",
+        employed: false
+    },
+    {
+        firstName: "Nancy",
+        lastName: "Waters",
+        company: "Fuelton",
+        employed: false
     }
   ];
-
   that.grid = {
-    columns: [
-      {
-        name: 'Hora'
-      }, {
-        name: 'Lunes'
-      },
-      {
-        name: 'Martes'
-      },
-      {
-        name: 'Miércoles'
-      },
-      {
-        name: 'Jueves'
-      }
+    enableSorting: true,
+    columnDefs: [
+      { field: 'firstName' },
+      { field: 'lastName' },
+      { field: 'company' },
+      { field: 'employed', enableCellEdit: false }
     ],
     data: that.data
   };
+
+
+  
 
 }]);
