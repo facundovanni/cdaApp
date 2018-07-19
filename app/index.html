@@ -12,65 +12,59 @@
   <title>CDA Application</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="app.css">
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
   <link rel="stylesheet" href="modules/alumno/alumno.css" />
   <link rel="stylesheet" href="modules/alumno/checkbox.css" />
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-  <link rel="stylesheet" type="text/css" href="bower_components/angular-ui-grid/ui-grid.min.css">
+  <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.min.css ">
 </head>
 
 <body>
-  <ul class="menu">
-    <li>
-      <a href="#!/cronograma/index">Ver Cronograma</a>
-    </li>
-    <li>
-      <a href="#!/view2">view2</a>
-    </li>
-    <li>
-      <a href="#!/alumno/index">Alumno</a>
-    </li>
-  </ul>
-  <div ng-view></div>
+  <div class="viewport " ui-view="viewport ">
+    <ul class="menu ">
+      <li>
+        <a ui-sref="/cronograma/index ">Ver Cronograma</a>
+        <a href="#!/cronograma/index ">Ver Cronograma</a>
+      </li>
+      <li>
+        <a href="#!/view2 ">view2</a>
+      </li>
+      <li>
+        <a href="#!/alumno/index ">Alumno</a>
+      </li>
+    </ul>
+    <div ng-view></div>
 
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="bower_components/angular-resource/angular-resource.js"></script>
-  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="bower_components/angular-ui-grid/ui-grid.min.js"></script>
-  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  </div>
 
-  <!-- Angular Material requires Angular.js Libraries -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
-  <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-resource.js'></script>
- 
+  <script src="bower_components/angular/angular.js "></script>
+  <script src="bower_components/angular-animate/angular-animate.js "></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js "></script>
+  <script src="bower_components/angular-touch/angular-touch.js "></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js "></script>
+  <script src="bower_components/angular-ui-grid/ui-grid.min.js "></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js "></script>
+  <script src="bower_components/angular-route/angular-route.js "></script>
+  <script src="bower_components/angular-resource/angular-resource.js "></script>
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js "></script>
 
-  <!-- Angular Material Library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.9/angular-material.min.js"></script>
+  <script src="components/version/version.js "></script>
+  <script src="components/version/version-directive.js "></script>
+  <script src="components/version/interpolate-filter.js "></script>
+  <script src="content/directives/cd-grid/cd-grid.js "></script>
 
-  <script src="components/version/version.js"></script>
-  <script src="components/version/version-directive.js"></script>
-  <script src="components/version/interpolate-filter.js"></script>
-  <script src="content/directives/cd-grid/cd-grid.js"></script>
+  <script src="modules/alumno/alumno-config.js "></script>
+  <script src="modules/alumno/alumno-srv.js "></script>
+  <script src="modules/alumno/alumno-con.js "></script>
+  <script src="modules/alumno/alumno-crud-con.js "></script>
+  <script src="modules/alumno/checkbox.js "></script>
 
-  <script src="modules/alumno/alumno-config.js"></script>
-  <script src="modules/alumno/alumno-srv.js"></script>
-  <script src="modules/alumno/alumno-con.js"></script>
-  <script src="modules/alumno/alumno-crud-con.js"></script>
-  <script src="modules/alumno/checkbox.js"></script>
+  <script src="modules/cronograma/cronograma-config.js "></script>
+  <script src="modules/cronograma/cronograma-con.js "></script>
 
-  <script src="modules/cronograma/cronograma-config.js"></script>
-  <script src="modules/cronograma/cronograma-con.js"></script>
-  
-  <script src="view2/view2.js"></script>
-  <script src="app.js"></script>
+  <script src="view2/view2.js "></script>
+  <script src="app.js "></script>
 </body>
 
 </html>

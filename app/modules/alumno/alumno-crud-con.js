@@ -1,35 +1,20 @@
-angular.module('cdApp.alumno').controller('AlumnoCRUDController', ['$scope', function ($form) {
-    $form.submit = function (list) {
-        $form.alumnos = [];
+angular.module('cdApp.alumno').controller('AlumnosCRUDController', ['$scope', 'Alumnos', '$uibModalInstance', 'items',
+    function ($scope, Alumnos, $uibModalInstance, items) {
+        var that = this;
+        that.modalInstance = $uibModalInstance;
+        that.hello = 'hola';
 
-        angular.forEach(list, function (value, key) {
-            if (list[key].selected) {
-                $form.alumnos.push(list[key]);
-            }
-        });
+        that.items = items;
+        that.selected = {
+            item: that.items[0]
+        };
 
-        // SHOW THE SELECTED ITEMS IN THE EXPRESSION.
-        /*  if (alumnos.length > 0)
-             $form.the_list = alumnos;
-         else
-             $form.the_list = 'Please choose an option'; */
+        that.ok = function () {
+            that.modalInstance.close(that.selected.item);
+        };
 
-        $form.alumnos;
+        that.cancel = function () {
+            that.modalInstance.dismiss('cancel');
+        };
     }
-}]
-);
-
-function showMe (box) {
-        
-    var chboxs = document.getElementsByName("c1");
-    var vis = "none";
-    for(var i in chboxs) { 
-        if(chboxs[i].checked){
-         vis = "block";
-            break;
-        }
-    }
-    document.getElementById(box).style.display = vis;
-
-
-}
+]);

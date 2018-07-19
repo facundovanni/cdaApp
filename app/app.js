@@ -3,9 +3,12 @@
 // Declare app level module which depends on views, and components
 angular.module('cdApp', [
   'ngRoute',
-  'ngMaterial',
+  'ngAnimate',
+  'ngSanitize',
+  'ngTouch',
   'ui.grid',
   'ui.router',
+  'ui.bootstrap',
   'cdApp.view2',
   'cdApp.alumno',
   'cdApp.cronograma',

@@ -1,20 +1,25 @@
-<div ng-controller="AlumnoCRUDController">
-<div class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+<div ng-form="CRUDAlumnosForm" class="modal fade" role="dialog">
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
       <div class="modal-content">
+
+        <!-- Modal Header -->
         <div class="modal-header">
-          <h5 class="modal-title">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <h4 class="modal-title">Alummnos seleccionados:</h4>
+          <button type="button" class="close" data-dismiss="modal">×</button>
         </div>
-        <div class="modal-body">
-          <p>Modal body text goes here.</p>
+
+        <!-- Modal body -->
+        <div class="modal-body" ng-repeat="alumno in alumnos">
+          {{ alumno.name }}
         </div>
+
+        <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Save changes</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" ng-click="deleteAlums(alumnos)">Eliminar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         </div>
+
       </div>
     </div>
   </div>

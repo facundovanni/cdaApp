@@ -20,7 +20,7 @@ angular.module('cdApp.directives', [])
                 var itemArray = [];
                 Object.keys(item).map(function(key, index) {
                     itemArray.push(item[key])
-                })
+                });
                 $scope.data.push(itemArray) 
             });
             console.log($scope.data);
