@@ -1,7 +1,5 @@
 <div ng-controller="BorrarAlumnoController">
 
-
-
     <!-- The Modal -->
     <div class="modal fade" id="myModal">
         <div class="modal-dialog">
@@ -9,7 +7,7 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Modal Heading</h4>
+                    <h4 class="modal-title">Alummnos seleccionados:</h4>
                     <button type="button" class="close" data-dismiss="modal">×</button>
                 </div>
 
@@ -20,7 +18,82 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" ng-click="deleteAlums(alumnos)">Eliminar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- CREATE Modal -->
+    <div class="modal fade" id="modalCrearAlumno">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Agregue su nuevo Alumno</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form method="post" name="myForm">
+                        <label for="firstName">Nombre: </label>
+                        <br/>
+                        <input type="text" id="firstName" ng-model="alumno.name" />
+                        <br />
+
+                        <label for="lastName">Apellido: </label>
+                        <br/>
+                        <input type="text" id="lastName" ng-model="alumno.surname" />
+                        <br />
+
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" ng-click="createAlum(alumno)">Crear</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- EDIT Modal -->
+    <div class="modal fade" id="modalEditarAlumno">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Alummno:</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form method="post" name="myForm">
+                        <label for="firstName">Nombre: </label>
+                        <br/>
+                        <input type="text" id="firstName" ng-model="alumno.name" />
+                        <br />
+
+                        <label for="lastName">Apellido: </label>
+                        <br/>
+                        <input type="text" id="lastName" ng-model="alumno.surname" />
+                        <br />
+
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" ng-click="updateAlum(alumno)">Guardar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 </div>
 
             </div>
@@ -28,34 +101,40 @@
     </div>
 
 
-    <table class="table">
+    <table class="table table-fit">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">
-                    <button type="button" id="div1" style="display:none" class="btn btn-primary" data-toggle="modal" data-target="#myModal" ng-click="submit(results)">
-                        Borrar
-                    </button>
+                    <i class="fa fa-trash" aria-hidden="true" ng-click="submit(results)" data-toggle="modal" data-target="#myModal" id="eliminar"></i>
                 </th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellido</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat='alumno in results'>
-                <th>
+                <td>
                     <div class="checkbox">
                         <label style="font-size: 1em">
-                            <input type="checkbox" name="c1" value="{{alumno.legajo}}" id="{{alumno.legajo}}" ng-model="alumno.selected" onclick="showMe('div1')">
+                            <input type="checkbox" name="c1" value="{{alumno.legajo}}" id="{{alumno.legajo}}" ng-model="alumno.selected" onclick="showMe('eliminar')">
                             <span class="cr">
                                 <i class="cr-icon fa fa-check"></i>
                             </span>
                         </label>
                     </div>
-                </th>
-                <th> {{ alumno.name }}</th>
+                </td>
+                <td> {{ alumno.name }} </td>
+                <td> {{ alumno.surname }} </td>
+                <td>
+                    <button type="button" class="btn btn-xs" ng-click="showModalEditAlum(alumno)" data-target="#modalEditarAlumno" data-toggle="modal">Editar</button>
+                </td>
             </tr>
         </tbody>
     </table>
-</div>
-</div>
+
+    <a class="float" ng-click="showModalCrearAlum()" data-target="#modalCrearAlumno" data-toggle="modal">
+        <i class="fa fa-plus my-float"></i>
+    </a>
+
 </div>

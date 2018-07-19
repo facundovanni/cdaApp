@@ -8,28 +8,29 @@ angular.module('cdApp.alumno').controller('BorrarAlumnoController', ['$scope', f
             }
         });
 
-        // SHOW THE SELECTED ITEMS IN THE EXPRESSION.
-        /*  if (alumnos.length > 0)
-             $form.the_list = alumnos;
-         else
-             $form.the_list = 'Please choose an option'; */
+         $form.alumnos;
+    }
 
-        $form.alumnos;
+    $form.showModalEditAlum = (alumno) => {
+        $("#modalEditarAlumno").show();
+        $form.alumno = alumno; 
+    }
+
+    $form.showModalCrearAlum = function() {
+        $("#modalCrearAlumno").show();
     }
 }]
 );
 
-function showMe (box) {
-        
+function showMe(box) {
+
     var chboxs = document.getElementsByName("c1");
     var vis = "none";
-    for(var i in chboxs) { 
-        if(chboxs[i].checked){
-         vis = "block";
+    for (var i in chboxs) {
+        if (chboxs[i].checked) {
+            vis = "block";
             break;
         }
     }
     document.getElementById(box).style.display = vis;
-
-
 }

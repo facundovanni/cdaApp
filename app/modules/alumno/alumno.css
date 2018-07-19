@@ -1,16 +1,21 @@
-div.div1 {
-    width: 11em; 
-    word-break: break-all;
+#eliminar {
+    padding: 0%;
+    display: none;
+    background-color: transparent;
+    cursor: pointer; /* cursor como si fuera un link*/
+    outline: none; /* no se marcan bordes azules cuando haces click */
 }
 
-table {
+.table {
     width: 100%; 
     text-align: justify;
+    table-layout:fixed;
+    padding-top: 10px
   }
 
 td {
     margin-right: 15px;
-  }
+}
 
 /*    --------------------------------------------------
 	:: General
@@ -19,5 +24,23 @@ td {
         font-family: 'Open Sans', sans-serif;
         color: #353535;
     }
+
+.float{
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:40px;
+    right:40px;
+    background-color:#0C9;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    box-shadow: 2px 2px 3px #999;
+    cursor: pointer; /* cursor como si fuera un link*/
+}
+    
+.my-float{
+    margin-top:22px;
+}
    
     
