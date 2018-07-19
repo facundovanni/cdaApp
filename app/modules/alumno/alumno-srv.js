@@ -6,7 +6,7 @@ angular.module('cdApp.alumno')
         //GET Alumnos
         crudFactory.getAlumnos = function () {
             return $http({
-                url: "http://LAPTOP-BQPLIEJU:8080/alumnos",
+                url: "https://orttaller6.herokuapp.com/alumnos",
                 method: 'GET'
             });
         };
@@ -14,7 +14,7 @@ angular.module('cdApp.alumno')
         //CREATE Alumnos
         crudFactory.createAlumno = function (Alumno) {
             return $http({
-                url: 'http://LAPTOP-BQPLIEJU:8080/alumnos',
+                url: 'https://orttaller6.herokuapp.com/alumnos',
                 method: 'POST',
                 data: Alumno,
                 hasBody: true,
@@ -26,7 +26,7 @@ angular.module('cdApp.alumno')
         //UPDATE Alumnos
         crudFactory.updateAlumnos = function (Alumno) {
             return $http({
-                url: 'http://LAPTOP-BQPLIEJU:8080/alumnos',
+                url: 'https://orttaller6.herokuapp.com/alumnos',
                 method: 'PUT',
                 hasBody: true,
                 data: Alumno,
@@ -37,7 +37,7 @@ angular.module('cdApp.alumno')
         //DELETE Alumnos
         crudFactory.deleteAlumnos = function (Alumnos) {
             return $http({
-                url: 'http://LAPTOP-BQPLIEJU:8080/alumnos',
+                url: 'https://orttaller6.herokuapp.com/alumnos',
                 method: 'DELETE',
                 hasBody: true,
                 data: Alumnos,
