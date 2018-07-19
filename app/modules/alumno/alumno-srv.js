@@ -17,6 +17,29 @@ angular.module('cdApp.alumno')
             });
         };
 
+        //CREATE Alumnos
+        crudFactory.createAlumno = function (Alumno) {
+            return $http({
+                url: 'http://LAPTOP-BQPLIEJU:8080/alumnos',
+                method: 'POST',
+                data: Alumno,
+                hasBody: true,
+                data: Alumno,
+                headers: { 'Content-Type': 'application/json;charset=utf-8' }
+            });
+        };
+
+        //UPDATE Alumnos
+        crudFactory.updateAlumnos = function (Alumno) {
+            return $http({
+                url: 'http://LAPTOP-BQPLIEJU:8080/alumnos',
+                method: 'PUT',
+                hasBody: true,
+                data: Alumno,
+                headers: { 'Content-Type': 'application/json;charset=utf-8' }
+            });
+        };
+
         //DELETE Alumnos
         crudFactory.deleteAlumnos = function (Alumnos) {
             return $http({
@@ -29,5 +52,4 @@ angular.module('cdApp.alumno')
         };
 
         return crudFactory;
-
     });

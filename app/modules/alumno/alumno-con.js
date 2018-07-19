@@ -19,8 +19,41 @@ angular.module('cdApp.alumno').controller('AlumnosController', function ($scope,
 
     });
 
-    $scope.deleteAlums = function(alumnos)
-    {
+    $scope.updateAlum = (alumno) => {
+
+        const editAlum = {
+            "id": alumno._id,
+            "name": alumno.name,
+            "surname": alumno.surname
+        }
+
+        Alumnos.updateAlumnos(editAlum).then(function successCallback(response) {
+
+            $(document).ready(function () {
+                $("#modalEditarAlumno").modal('hide');
+            });
+
+            $scope.alumno = null;
+
+            Alumnos.getAlumnos().then(function successCallback(response) {
+
+                $scope.results = response.data;
+
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+
+            });
+
+
+        }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+
+        });
+    }
+
+    $scope.deleteAlums = function (alumnos) {
         const responseAlumnos = [];
 
         console.log(alumnos)
@@ -39,26 +72,26 @@ angular.module('cdApp.alumno').controller('AlumnosController', function ($scope,
             Alumnos.getAlumnos().then(function successCallback(response) {
                 // this callback will be called asynchronously
                 // when the response is available
-                $(document).ready(function() {
+                $(document).ready(function () {
                     $("#myModal").modal('hide');
-                  });
-                  
+                });
+
                 $scope.results = response.data;
-        
-        
+
+
             }, function errorCallback(response) {
                 // called asynchronously if an error occurs
                 // or server returns response with an error status.
-        
+
             });
-    
-    
+
+
         }, function errorCallback(response) {
             // called asynchronously if an error occurs
             // or server returns response with an error status.
-    
+
         });
 
-        
+
     };
 });

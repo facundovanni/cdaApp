@@ -16,6 +16,13 @@ angular.module('cdApp.alumno').controller('BorrarAlumnoController', ['$scope', f
 
         $form.alumnos;
     }
+
+    $form.showModalEditAlum = (alumno) => {
+        
+        $("#modalEditarAlumno").show();
+        $form.alumno = alumno;
+          
+    }
 }]
 );
 

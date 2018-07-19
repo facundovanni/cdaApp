@@ -26,6 +26,39 @@
         </div>
     </div>
 
+     <!-- EDIT Modal -->
+     <div class="modal fade" id="modalEditarAlumno">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Alummno:</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form>
+                        <label for="firstName">Nombre: </label><br/>
+                        <input type="text" id="firstName" ng-model="alumno.name"/> <br />
+            
+                        <label for="lastName">Apellido: </label><br/>
+                        <input type="text" id="lastName" ng-model="alumno.surname"/> <br />
+                    
+                      </form>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" ng-click="updateAlum(alumno)">Guardar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 
     <table class="table table-fit">
         <thead class="thead-dark">
@@ -53,7 +86,7 @@
                 <td> {{ alumno.name }} </td>
                 <td> {{ alumno.surname }} </td>
                 <td>
-                    <button type="button" class="btn btn-xs" ng-click="editDialog.open(person)">Editar</button>
+                    <button type="button" class="btn btn-xs" ng-click="showModalEditAlum(alumno)" data-target="#modalEditarAlumno"  data-toggle="modal" >Editar</button>
                 </td>
             </tr>
         </tbody>
