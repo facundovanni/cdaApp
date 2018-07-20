@@ -1,10 +1,15 @@
-<div ng-controller="AlumnosController as ctrl">
+<div ng-controller="AlumnosGridController as ctrl" us-spinner spinner-on="ctrl.isLoading">
     <div class="container">
-        <button type="button" 
-        class="btn btn-default" 
-        ng-click="ctrl.addNew()">
-            Agregar Alumno
-    </button>
-        <div ng-if="ctrl.showGrid" ui-grid="ctrl.grid" class="grid"></div>
+        <div class="row">
+            <div class="title">Alumnos</div>
+        </div>
+        <div class="row">
+            <button type="button" class="btn btn-default" ng-click="ctrl.openCRUD()">
+                Agregar Alumno
+            </button>
+        </div>
+        <div class="row">
+            <div ng-if="ctrl.showGrid" ui-grid-selection ui-grid-edit ui-grid="ctrl.grid" class="grid"></div>
+        </div>
     </div>
 </div>

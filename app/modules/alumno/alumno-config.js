@@ -1,9 +1,9 @@
 // tag::module[]
-angular.module('cdApp.alumno', ['ngResource', 'ngRoute', 'ngAnimate', 'ngSanitize', 'ui.bootstrap'])
+angular.module('cdApp.alumno', ['ngResource'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/alumno/index', {
             templateUrl: 'modules/alumno/alumno-grid.html',
-            controller: 'AlumnosController',
+            controller: 'AlumnosGridController',
         });
         $routeProvider.when('/alumno/create', {
             templateUrl: 'modules/alumno/alumno-crud.html',

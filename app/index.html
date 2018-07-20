@@ -22,48 +22,49 @@
 
 <body>
   <div class="viewport " ui-view="viewport ">
-    <ul class="menu ">
-      <li>
-        <a ui-sref="/cronograma/index ">Ver Cronograma</a>
-        <a href="#!/cronograma/index ">Ver Cronograma</a>
-      </li>
-      <li>
-        <a href="#!/view2 ">view2</a>
-      </li>
-      <li>
-        <a href="#!/alumno/index ">Alumno</a>
-      </li>
-    </ul>
-    <div ng-view></div>
-
+    <div class="headerMenu">
+      <div class="">
+        <div class="col-xs">
+          <span class="headerTitle">CDA</span>
+        </div>
+        <a class="col-xs pull-right" href="#">Sign out</a>
+      </div>
+    </div>
+    <div class="sidebar col-md-2 d-none d-md-block bg-light">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a href="#!/cronograma/index ">Ver Cronograma</a>
+        </li>
+        <li>
+          <a href="#!/alumno/index ">Alumno</a>
+        </li>
+      </ul>
+    </div>
+    <div class="main" ng-view></div>
   </div>
 
-  <script src="bower_components/angular/angular.js "></script>
+  <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-animate/angular-animate.js "></script>
   <script src="bower_components/angular-sanitize/angular-sanitize.js "></script>
   <script src="bower_components/angular-touch/angular-touch.js "></script>
   <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js "></script>
   <script src="bower_components/angular-ui-grid/ui-grid.min.js "></script>
   <script src="bower_components/angular-ui-router/release/angular-ui-router.js "></script>
-  <script src="bower_components/angular-route/angular-route.js "></script>
-  <script src="bower_components/angular-resource/angular-resource.js "></script>
+  <script src="bower_components/angular-spinner/dist/angular-spinner.min.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js "></script>
 
-  <script src="components/version/version.js "></script>
-  <script src="components/version/version-directive.js "></script>
-  <script src="components/version/interpolate-filter.js "></script>
-  <script src="content/directives/cd-grid/cd-grid.js "></script>
+  <script src="content/services/services-model.js"></script>
 
   <script src="modules/alumno/alumno-config.js "></script>
   <script src="modules/alumno/alumno-srv.js "></script>
-  <script src="modules/alumno/alumno-con.js "></script>
+  <script src="modules/alumno/alumno-grid-con.js "></script>
   <script src="modules/alumno/alumno-crud-con.js "></script>
-  <script src="modules/alumno/checkbox.js "></script>
 
   <script src="modules/cronograma/cronograma-config.js "></script>
   <script src="modules/cronograma/cronograma-con.js "></script>
 
-  <script src="view2/view2.js "></script>
   <script src="app.js "></script>
 </body>
 

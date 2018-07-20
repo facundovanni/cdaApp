@@ -9,10 +9,10 @@ angular.module('cdApp', [
   'ui.grid',
   'ui.router',
   'ui.bootstrap',
-  'cdApp.view2',
+  'angularSpinner',
+  'cdApp.services',
   'cdApp.alumno',
-  'cdApp.cronograma',
-  'cdApp.directives'
+  'cdApp.cronograma'
 ]).
   config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');

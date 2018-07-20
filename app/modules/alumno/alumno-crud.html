@@ -1,4 +1,4 @@
-<div ng-form="CRUDAlumnosForm" class="modal-container">
+<div ng-form="CRUDAlumnosForm" class="modal-container"  us-spinner spinner-on="ctrl.isLoading">
   <!-- Modal Header -->
   <div class="modal-header">
     <div class="modal-title">{{ctrl.title}}</div>
@@ -8,28 +8,38 @@
   </div>
   <div class="modal-body">
     <div class="container-fluid">
-      <div class="row samba-row">
-        <div class="col-xs-6">
-          <label for="name">Nombre</label>
-          <input name="name" ng-model="ctrl.alumno.name" type="text" class="form-control" ng-class="{ 'ng-invalid aa-invalid-attempt' : ctrl.vacationBusinessDaysErrorMsg }"
-            ng-disabled="ctrl.disabled">
+      <div class="row">
+        <div class="col-xs-3">
+          <label for="legajo">Legajo</label>
+          <input name="legajo" ng-model="ctrl.alumno.legajo" type="text" class="form-control" ng-class="{ 'ng-invalid aa-invalid-attempt' : ctrl.vacationBusinessDaysErrorMsg }"
+            ng-disabled="ctrl.disableLegajo">
         </div>
-        <div class="col-xs-6">
+      </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <label for="name">Nombre</label>
+            <input name="name" ng-model="ctrl.alumno.name" type="text" class="form-control" ng-class="{ 'ng-invalid aa-invalid-attempt' : ctrl.vacationBusinessDaysErrorMsg }"
+              ng-disabled="ctrl.disableName">
+          </div>
+          <div class="col-xs-6">
             <label for="surname">Apellido</label>
-          <input name="surname" ng-model="ctrl.alumno.surname" type="text" class="form-control" ng-class="{ 'ng-invalid aa-invalid-attempt' : ctrl.vacationBusinessDaysErrorMsg }"
-            ng-disabled="ctrl.disabled">
+            <input name="surname" ng-model="ctrl.alumno.surname" type="text" class="form-control" ng-class="{ 'ng-invalid aa-invalid-attempt' : ctrl.vacationBusinessDaysErrorMsg }"
+              ng-disabled="ctrl.disableSurname">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12">
+            <button ng-if="ctrl.alumno._id && !ctrl.isEditing" class="btn btn-primary" type="button" ng-click="ctrl.setEdit(true)">Editar</button>
+            <button ng-if="ctrl.isEditing" class="btn btn-primary" type="button" ng-click="ctrl.save()">Guardar</button>
+            <button ng-if="ctrl.alumno._id" class="btn btn-primary" type="button" ng-click="ctrl.delete()">Eliminar</button>
+            <button ng-if="ctrl.isEditing" class="btn btn-warning" type="button" ng-click="ctrl.cancel()">Cancelar</button>
+            <button ng-if="!ctrl.isEditing" class="btn btn-warning" type="button" ng-click="ctrl.cancel()">Salir</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="modal-footer">
-      <div class="container-fluid">
-          <div class="row">
-              <div class="col-xs-12">
-                  <button class="btn btn-primary" type="button" ng-click="ctrl.ok()">OK</button>
-                  <button class="btn btn-warning" type="button" ng-click="ctrl.cancel()">Cancel</button>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
