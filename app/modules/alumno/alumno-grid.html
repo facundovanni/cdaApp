@@ -1,11 +1,11 @@
 <div ng-controller="AlumnosGridController as ctrl" us-spinner spinner-on="ctrl.isLoading">
     <div class="container">
         <div class="row">
-            <div class="title">Alumnos</div>
+            <h1 class="title">Alumnos</h1>
         </div>
-        <div class="row">
-            <button type="button" class="btn btn-default" ng-click="ctrl.openCRUD()">
-                Agregar Alumno
+        <div class="row cda-row">
+            <button type="button" class="btn btn-default btn-md btn-new" ng-click="ctrl.openCRUD()">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Agregar nuevo
             </button>
         </div>
         <div class="row">

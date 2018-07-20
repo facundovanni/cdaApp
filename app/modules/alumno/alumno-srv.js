@@ -20,8 +20,6 @@
                     _id: undefined,
                     name: '',
                     surname: '',
-                    legajo: '',
-                    materias: []
                 };
             };
         }]);

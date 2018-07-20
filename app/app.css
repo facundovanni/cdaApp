@@ -1,7 +1,7 @@
 /* The sidenav */
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: 'Segoe UI', 'Roboto', "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -10,7 +10,10 @@ body {
   background-color: #fff
 }
 
-
+.title{
+  font-family: 'Segoe UI', 'Roboto', "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-weight: 500;
+}
 /*
  * Sidebar
  */
@@ -20,7 +23,7 @@ body {
   position: fixed;
   box-shadow: none;
   background-color: #f8f9fa !important;
-  width: 250px;
+  width: 200px;
   height: 100%;
   display: block !important;
   overflow-y: auto;
@@ -90,15 +93,24 @@ body {
 
 .sidebar a {
   padding: 8px 8px 8px 32px;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
   color: #383838;
   display: block;
 }
 
+
 /* Page content */
 
 .main {
-  margin-left: 270px;
+  margin-left: 220px;
   /* Same as the width of the sidenav */
+}
+
+.cda-row{
+  margin-bottom:10px;
+}
+
+.btn-new{
+  background-color: #83bdf3;
 }

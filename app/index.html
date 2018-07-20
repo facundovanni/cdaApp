@@ -23,21 +23,26 @@
 <body>
   <div class="viewport " ui-view="viewport ">
     <div class="headerMenu">
-      <div class="">
-        <div class="col-xs">
-          <span class="headerTitle">CDA</span>
+      <div class="col-xs-12">
+          <div class="headerTitle">CDA - Control de Asistencia</div>
         </div>
-        <a class="col-xs pull-right" href="#">Sign out</a>
       </div>
     </div>
     <div class="sidebar col-md-2 d-none d-md-block bg-light">
       <ul class="nav flex-column">
         <li class="nav-item">
-          <a href="#!/cronograma/index ">Ver Cronograma</a>
+          <a class="nav-link" href="#!/cronograma/index">
+            <span class="glyphicon glyphicon-calendar"></span>
+            Cronograma
+          </a>
         </li>
-        <li>
-          <a href="#!/alumno/index ">Alumno</a>
+        <li class="nav-item">
+          <a class="nav-link" href="#!/alumno/index">
+            <span class="glyphicon glyphicon-user"></span>
+            Alumnos
+          </a>
         </li>
+
       </ul>
     </div>
     <div class="main" ng-view></div>
@@ -53,7 +58,6 @@
   <script src="bower_components/angular-spinner/dist/angular-spinner.min.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
-  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js "></script>
 
   <script src="content/services/services-model.js"></script>
 

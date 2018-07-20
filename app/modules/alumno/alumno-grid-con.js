@@ -43,7 +43,7 @@ angular.module('cdApp.alumno').controller('AlumnosGridController', ['$scope', 'A
     that.modalInstance = {
       templateUrl: 'modules/alumno/alumno-crud.html',
       controller: 'AlumnosCRUDController as ctrl',
-      size: 'lg'
+      size: 'md'
     };
 
     that.openCRUD = function openCRUD(grid, row) {
