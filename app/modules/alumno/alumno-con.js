@@ -17,41 +17,38 @@ angular.module('cdApp.alumno').controller('AlumnosController', ['$scope', 'Alumn
       that.grid = {
         enableSorting: true,
         columnDefs: [{
-            name: 'Nombre',
-            field: 'name'
-          },
-          {
-            field: 'legajo'
-          }
+          name: 'Nombre',
+          field: 'name'
+        },
+        {
+          field: 'legajo'
+        }
         ],
         data: that.data
       };
       that.showGrid = true;
     };
 
-    that.addNew = function addNew() {
-      $state.go('/alumno/create');
+    that.modalInstance = {
+      templateUrl: 'modules/alumno/alumno-crud.html',
+      controller: 'AlumnosCRUDController as ctrl',
+      size: 'lg'
     };
-    that.items = ['item1', 'item2', 'item3'];
 
-    that.open = function open() {
-      /*var parentElem = parentSelector ? 
-        angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;*/
-      var modalInstance = {
-        templateUrl: 'modules/alumno/alumno-crud.html',
-        controller: 'AlumnosCRUDController as ctrl',
-        size: 'xs',
-        resolve: {
-          items: function () {
-            return that.items;
-          }
+
+
+    that.addNew = function open() {
+      that.modalInstance.resolve = {
+        alumnoId: function getAlumnoId(){
+          return undefined;
+        },
+        mode: function getMode(){
+          return 'C';
         }
       };
 
-      $uibModal.open(modalInstance).result.then(function success() {
-        console.log('ok')
-      }, function () {
-        console.log('Modal dismissed at: ' + new Date());
+      $uibModal.open(that.modalInstance).result.then(function success() {
+        that.getAlumnos();
       });
     };
 
