@@ -6,21 +6,11 @@
             angular.extend(this, ServicesModel.create('https://orttaller6.herokuapp.com/alumnos/:id', null, {
                 grid: {
                     method: 'GET',
-                    isArray: true,
-                    param: {
-                        id: '@id'
-                    }
+                    isArray: true
                 },
                 save: {
                     method: 'POST',
                     url: 'https://orttaller6.herokuapp.com/alumnos',
-                },
-                update: {
-                    url: 'https://orttaller6.herokuapp.com/alumnos/:id',
-                    method: 'PUT',
-                    params:{
-                        id:'@id'
-                    }
                 }
             }));
 
