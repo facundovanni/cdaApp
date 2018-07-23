@@ -17,7 +17,7 @@
 
             that.getDefaultEntity = function getDefaultEntity() {
                 return {
-                    _id: undefined,
+                    id: undefined,
                     name: '',
                     surname: '',
                 };

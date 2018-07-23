@@ -5,10 +5,10 @@ angular.module('cdApp.alumno').controller('AlumnosCRUDController', ['$scope', 'A
 
         that.alumno = Alumnos.getDefaultEntity();
 
-        that.alumno._id = alumnoId;
+        that.alumno.id = alumnoId;
 
         that.init = function init() {
-            if (that.alumno._id) {
+            if (that.alumno.id) {
                 that.title = 'Consulta de alumno';
                 that.setAlumno();
                 that.setEdit(false);
@@ -27,17 +27,18 @@ angular.module('cdApp.alumno').controller('AlumnosCRUDController', ['$scope', 'A
 
         that.setAlumno = function setAlumno() {
             that.isLoading = true;
-            Alumnos.query().$promise.then(function onThen(res) {
-                that.alumno = res.find(function find(fil) {
-                    return fil._id === that.alumno._id;
-                });
+            Alumnos.getById(that.alumno.id).$promise.then(function onThen(res) {
+                that.alumno = res;
+                that.alumno.id = res._id;
+                that.alumno._id= undefined;
+                
             }).finally(function onFinally() {
                 that.isLoading = false;
             });
         };
 
         that.save = function save() {
-            that.alumno._id ? that.update() :  that.createNew();
+            that.alumno.id ? that.update() :  that.createNew();
             
         };
 
@@ -53,7 +54,7 @@ angular.module('cdApp.alumno').controller('AlumnosCRUDController', ['$scope', 'A
             that.isLoading = true;
             Alumnos.update(that.alumno).$promise.then(function onThen(res) {
                 that.modalInstance.close();
-            })
+            });
             that.isLoading = false;
         }
 
