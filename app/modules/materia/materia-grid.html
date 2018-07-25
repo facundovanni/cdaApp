@@ -1,0 +1,15 @@
+<div ng-controller="MateriasGridController as ctrl" us-spinner spinner-on="ctrl.isLoading">
+    <div class="container">
+        <div class="row">
+            <h1 class="title">Materias</h1>
+        </div>
+        <div class="row cda-row">
+            <button type="button" class="btn btn-default btn-md btn-new" ng-click="ctrl.openCRUD()">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Agregar nuevo
+            </button>
+        </div>
+        <div class="row">
+            <div ng-if="ctrl.showGrid" ui-grid-selection ui-grid-edit ui-grid="ctrl.grid" class="grid"></div>
+        </div>
+    </div>
+</div>

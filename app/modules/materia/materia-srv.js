@@ -1,16 +1,16 @@
-(function AlumnosScope(angular) {
+(function VacationsScope(angular) {
     'use strict';
-    angular.module('cdApp.alumno')
-        .service('Alumnos', ['ServicesModel', function (ServicesModel) {
+    angular.module('cdApp.materia')
+        .service('Materias', ['ServicesModel', function (ServicesModel) {
             var that = this;
-            angular.extend(this, ServicesModel.create('https://orttaller6.herokuapp.com/alumnos/:id', null, {
+            angular.extend(this, ServicesModel.create('https://orttaller6.herokuapp.com/materias/:id', null, {
                 grid: {
                     method: 'GET',
                     isArray: true
                 },
                 save: {
                     method: 'POST',
-                    url: 'https://orttaller6.herokuapp.com/alumnos',
+                    url: 'https://orttaller6.herokuapp.com/materias',
                 }
             }));
 
@@ -18,9 +18,9 @@
             that.getDefaultEntity = function getDefaultEntity() {
                 return {
                     id: undefined,
-                    name: '',
-                    surname: '',
+                    name: undefined,
+                    key: undefined
                 };
             };
         }]);
-})(angular);
+})(window.angular);

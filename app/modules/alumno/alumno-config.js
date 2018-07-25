@@ -1,3 +1,5 @@
+(function AlumnosConfigScope(angular) {
+    'use strict';  
 // tag::module[]
 angular.module('cdApp.alumno', ['ngResource'])
     .config(['$routeProvider', function ($routeProvider) {
@@ -9,4 +11,5 @@ angular.module('cdApp.alumno', ['ngResource'])
             templateUrl: 'modules/alumno/alumno-crud.html',
             controller: 'AlumnosCRUDController',
         });
-}])
+}]);
+})(angular);

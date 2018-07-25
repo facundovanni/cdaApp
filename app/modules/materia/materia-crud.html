@@ -1,0 +1,40 @@
+<div ng-form="CRUDMateriasForm" class="modal-container" us-spinner spinner-on="ctrl.isLoading">
+  <!-- Modal Header -->
+  <div class="modal-body">
+    <div class="container-fluid">
+      <div class="row cda-row">
+        <h3 class="title">{{ctrl.title}}</h3>
+      </div>
+      <div class="row cda-row">
+        <div class="col-xs-6">
+          <label for="key">Clave</label>
+          <input name="key" ng-model="ctrl.materia.key" type="text" class="form-control  is-invalid" ng-required="required" ng-disabled="ctrl.disabled">
+          <div class="invalid-feedback">
+            Debe dar una clave
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <label for="name">Nombre</label>
+          <input name="name" ng-model="ctrl.materia.name" type="text" class="form-control   is-invalid" placeholder="Nombre" ng-required="required"
+            ng-disabled="ctrl.disabled">
+          <div class="invalid-feedback">
+            Debe escribir un nombre
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="container-fluid">
+      <div class="row cda-row">
+        <div class="col-xs-12">
+          <button ng-if="ctrl.materia.id && !ctrl.isEditing" class="btn btn-primary" type="button" ng-click="ctrl.setEdit(true)">Editar</button>
+          <button ng-if="ctrl.isEditing" class="btn btn-primary" type="button" ng-click="ctrl.save()">Guardar</button>
+          <button ng-if="ctrl.materia.id" class="btn btn-primary" type="button" ng-click="ctrl.delete()">Eliminar</button>
+          <button ng-if="ctrl.isEditing" class="btn btn-warning" type="button" ng-click="ctrl.cancel()">Cancelar</button>
+          <button ng-if="!ctrl.isEditing" class="btn btn-warning" type="button" ng-click="ctrl.cancel()">Salir</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

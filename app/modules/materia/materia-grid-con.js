@@ -1,17 +1,17 @@
-(function AlumnosGridScope(angular) {
+(function MateriaGridScope(angular) {
   'use strict';
 
-  angular.module('cdApp.alumno').controller('AlumnosGridController', ['$scope', 'Alumnos', '$state', '$uibModal',
-    function ($scope, Alumnos, $state, $uibModal) {
+  angular.module('cdApp.materia').controller('MateriasGridController', ['$scope', 'Materias', '$state', '$uibModal',
+    function ($scope, Materias, $state, $uibModal) {
       var that = this;
 
       that.init = function init() {
-        that.getAlumnos();
+        that.getMaterias();
       };
-
-      that.getAlumnos = function getAlumnos() {
+ 
+      that.getMaterias = function getMaterias() {
         that.isLoading = true;
-        Alumnos.grid().$promise.then(function (res) {
+        Materias.grid().$promise.then(function (res) {
           that.data = res;
           that.setGrid();
         }).finally(function onFinally() {
@@ -28,15 +28,12 @@
           enableGridMenu: true,
           rowTemplate: "<div ng-dblclick=\"grid.appScope.ctrl.openCRUD(grid, row)\" ng-repeat=\"(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name\" class=\"ui-grid-cell\" ng-class=\"{ 'ui-grid-row-header-cell': col.isRowHeader }\" ui-grid-cell></div>",
           columnDefs: [{
-            name: 'Legajo',
-            field: 'legajo',
+            name: 'Clave',
+            field: 'key',
             width: '100'
           }, {
             name: 'Nombre',
             field: 'name'
-          }, {
-            name: 'Apellido',
-            field: 'surname'
           }],
           data: that.data
         };
@@ -44,20 +41,20 @@
       };
 
       that.modalInstance = {
-        templateUrl: 'modules/alumno/alumno-crud.html',
-        controller: 'AlumnosCRUDController as ctrl',
+        templateUrl: 'modules/materia/materia-crud.html',
+        controller: 'MateriasCRUDController as ctrl',
         size: 'md'
       };
 
       that.openCRUD = function openCRUD(grid, row) {
         that.modalInstance.resolve = {
-          alumnoId: function getAlumnoId() {
+          materiaId: function getMateriaId() {
             return row ? row.entity._id : undefined;
           }
         };
 
         $uibModal.open(that.modalInstance).result.then(function success() {
-          that.getAlumnos();
+          that.getMaterias();
         });
       }
 

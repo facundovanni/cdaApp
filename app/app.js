@@ -12,6 +12,7 @@ angular.module('cdApp', [
   'angularSpinner',
   'cdApp.services',
   'cdApp.alumno',
+  'cdApp.materia',
   'cdApp.cronograma'
 ]).
   config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {

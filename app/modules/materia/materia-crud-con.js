@@ -1,39 +1,37 @@
-(function AlumnosCRUDScope(angular) {
+(function MateriaGridScope(angular) {
     'use strict';
   
-angular.module('cdApp.alumno').controller('AlumnosCRUDController', ['$scope', 'Alumnos', '$uibModalInstance', 'alumnoId',
-    function ($scope, Alumnos, $uibModalInstance, alumnoId) {
+angular.module('cdApp.materia').controller('MateriasCRUDController', ['$scope', 'Materias', '$uibModalInstance', 'materiaId',
+    function ($scope, Materias, $uibModalInstance, materiaId) {
         var that = this;
         that.modalInstance = $uibModalInstance;
 
-        that.alumno = Alumnos.getDefaultEntity();
+        that.materia = Materias.getDefaultEntity();
 
-        that.alumno.id = alumnoId;
+        that.materia.id = materiaId;
 
         that.init = function init() {
-            if (that.alumno.id) {
-                that.title = 'Consulta de alumno';
-                that.setAlumno();
+            if (that.materia.id) {
+                that.title = 'Consulta de materia';
+                that.setMateria();
                 that.setEdit(false);
             } else {
-                that.title = 'Alta de alumno';
+                that.title = 'Alta de materia';
                 that.setEdit(true);
             }
         };
 
         that.setEdit = function setEdit(boolean) {
-            that.disableName = !boolean;
-            that.disableSurname = !boolean;
-            that.disableLegajo = !boolean;
+            that.disabled = !boolean;
             that.isEditing = boolean;
         };
 
-        that.setAlumno = function setAlumno() {
+        that.setMateria = function setMateria() {
             that.isLoading = true;
-            Alumnos.getById(that.alumno.id).$promise.then(function onThen(res) {
-                that.alumno = res;
-                that.alumno.id = res._id;
-                that.alumno._id= undefined;
+            Materias.getById(that.materia.id).$promise.then(function onThen(res) {
+                that.materia = res;
+                that.materia.id = res._id;
+                that.materia._id= undefined;
                 
             }).finally(function onFinally() {
                 that.isLoading = false;
@@ -41,13 +39,12 @@ angular.module('cdApp.alumno').controller('AlumnosCRUDController', ['$scope', 'A
         };
 
         that.save = function save() {
-            that.alumno.id ? that.update() :  that.createNew();
-            
+            that.materia.id ? that.update() :  that.createNew();
         };
 
         that.createNew = function createNew(){
             that.isLoading = true;
-            Alumnos.save(that.alumno).$promise.then(function onThen(res) {
+            Materias.save(that.materia).$promise.then(function onThen(res) {
                 that.modalInstance.close();
             });
             that.isLoading = false;
@@ -55,14 +52,14 @@ angular.module('cdApp.alumno').controller('AlumnosCRUDController', ['$scope', 'A
         
         that.update = function update() {
             that.isLoading = true;
-            Alumnos.update(that.alumno).$promise.then(function onThen(res) {
+            Materias.update(that.materia).$promise.then(function onThen(res) {
                 that.modalInstance.close();
             });
             that.isLoading = false;
         }
 
         that.delete = function update() {
-            Alumnos.remove(that.alumno).$promise.then(function onThen(res) {
+            Materias.remove(that.materia).$promise.then(function onThen(res) {
                 that.modalInstance.close();
             })
         }
