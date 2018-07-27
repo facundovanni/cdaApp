@@ -10,6 +10,7 @@ angular.module('cdApp', [
   'ui.router',
   'ui.bootstrap',
   'angularSpinner',
+  'angularjs-dropdown-multiselect',
   'cdApp.services',
   'cdApp.alumno',
   'cdApp.materia',

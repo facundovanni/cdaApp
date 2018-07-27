@@ -1,27 +1,27 @@
-(function AlumnosCRUDScope(angular) {
+(function CronogramasCRUDScope(angular) {
     'use strict';
 
-    angular.module('cdApp.alumno').controller('AlumnosCRUDController',
-        ['$scope', 'Alumnos', '$uibModalInstance', 'alumnoId', 'Materias',
-            function ($scope, Alumnos, $uibModalInstance, alumnoId, Materias) {
+    angular.module('cdApp.cronograma').controller('CronogramasCRUDController',
+        ['$scope', 'Cronogramas', '$uibModalInstance', 'cronogramaId', 'hora', 'Materias',
+            function ($scope, Cronogramas, $uibModalInstance, cronogramaId, hora, Materias) {
                 var that = this;
                 that.modalInstance = $uibModalInstance;
                 that.validateError = {
                     text: 'Campo requerido'
                 };
-                that.getDataMaterias = [];
-                that.selectedMaterias = [];
-                that.alumno = Alumnos.getDefaultEntity();
+                that.hora = hora;
+                that.materias = [];
+                that.cronograma = Cronogramas.getDefaultEntity();
 
-                that.alumno.id = alumnoId;
+                that.cronograma.id = cronogramaId;
 
                 that.init = function init() {
-                    if (that.alumno.id) {
-                        that.title = 'Consulta de alumno';
-                        that.setAlumno();
+                    if (that.cronograma.id) {
+                        that.title = 'Consulta de cronograma';
+                        that.setCronograma();
                         that.setEdit(false);
                     } else {
-                        that.title = 'Alta de alumno';
+                        that.title = 'Alta de cronograma';
                         that.getMaterias();
                         that.setEdit(true);
                     }
@@ -32,13 +32,17 @@
                     that.isEditing = boolean;
                 };
 
-                that.setAlumno = function setAlumno() {
+                that.setCronograma = function setCronograma() {
                     that.isLoading = true;
-                    Alumnos.getById(that.alumno.id).$promise.then(function onThen(res) {
-                        that.alumno = res;
-                        that.alumno.id = res._id;
-                        delete that.alumno._id;
-                        that.getMaterias();
+                    that.getMaterias().then(function onThen() {
+                        Cronogramas.getById(that.cronograma.id).$promise.then(function onThen(res) {
+                            that.cronograma = res;
+                            that.cronograma.id = res._id;
+                            delete that.cronograma._id;
+                            that.materiasSelected = that.cronograma.horarios.find(function find(obj){
+                                return obj.hora === that.hora;
+                            });
+                        });
                     }).finally(function onFinally() {
                         that.isLoading = false;
                     });
@@ -48,13 +52,13 @@
                     that.setMaterias();
                     if (that.validate()) {
 
-                        that.alumno.id ? that.update() : that.createNew();
+                        that.cronograma.id ? that.update() : that.createNew();
                     }
                 };
 
                 that.createNew = function createNew() {
                     that.isLoading = true;
-                    Alumnos.save(that.alumno).$promise.then(function onThen(res) {
+                    Cronogramas.save(that.cronograma).$promise.then(function onThen(res) {
                         that.modalInstance.close();
                     });
                     that.isLoading = false;
@@ -62,14 +66,14 @@
 
                 that.update = function update() {
                     that.isLoading = true;
-                    Alumnos.update(that.alumno).$promise.then(function onThen(res) {
+                    Cronogramas.update(that.cronograma).$promise.then(function onThen(res) {
                         that.modalInstance.close();
                     });
                     that.isLoading = false;
                 }
 
                 that.delete = function update() {
-                    Alumnos.remove(that.alumno).$promise.then(function onThen(res) {
+                    Cronogramas.remove(that.cronograma).$promise.then(function onThen(res) {
                         that.modalInstance.close();
                     })
                 }
@@ -83,44 +87,28 @@
                 };
 
                 that.validateLegajo = function validateLegajo() {
-                    return !(that.validateError.legajo = !that.alumno.legajo);
+                    return !(that.validateError.legajo = !that.cronograma.legajo);
                 };
                 that.validateName = function validateName() {
-                    return !(that.validateError.name = !that.alumno.name);
+                    return !(that.validateError.name = !that.cronograma.name);
                 };
                 that.validateSurname = function validateSurname() {
-                    return !(that.validateError.surname = !that.alumno.surname);
+                    return !(that.validateError.surname = !that.cronograma.surname);
                 };
 
                 that.getMaterias = function getMaterias() {
-                    that.isLoading = true;
-                    Materias.query().$promise.then(function onThen(res) {
-                        var i = 1;
-                        res.map(function onMap(obj) {
-                            that.getDataMaterias.push({ id: i, label: obj.name, idMat: obj._id });
-                            if(that.alumno.materias.length > 0){
-                                var aux = that.alumno.materias.find(function onFind(el){
-                                    return obj._id === el.id;
-                                });
-                                if (aux){
-                                    that.selectedMaterias.push({id: i});
-                                }
-                            }
-                            i++;
-                        });
-                    }).finally(function onFinally() {
-                        that.isLoading = false;
+                    return Materias.query().$promise.then(function onThen(res) {
+                        that.materias = res;
                     });
-
                 };
                 //Dado que el componente no deja bien, tengo que hacer esto
                 that.setMaterias = function setMaterias() {
-                    that.alumno.materias.splice(0);
+                    that.cronograma.materias.splice(0);
                     that.selectedMaterias.map(function forEach(obj) {
                         var aux = that.getDataMaterias.find(function find(el) {
                             return obj.id === el.id;
                         });
-                        that.alumno.materias.push( {id: aux.idMat, name: aux.label});
+                        that.cronograma.materias.push({ id: aux.idMat, name: aux.label });
                     });
                 };
 

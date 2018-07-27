@@ -43,6 +43,7 @@
         "angular-touch": "^1.7.2",
         "angular-ui-bootstrap": "^2.5.6",
         "angular-ui-grid": "^4.6.2",
+        "angularjs-dropdown-multiselect": "^2.0.0-beta.10",
         "bootstrap": "^4.1.1",
         "feather-icons": "^4.7.3",
         "http": "0.0.0",

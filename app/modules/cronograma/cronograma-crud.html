@@ -1,4 +1,4 @@
-<div ng-form="CRUDAlumnosForm" class="modal-container crud" us-spinner spinner-on="ctrl.isLoading">
+<div ng-form="CRUDCronogramasForm" class="modal-container crud" us-spinner spinner-on="ctrl.isLoading">
   <!-- Modal Header -->
   <div class="modal-body">
     <div class="container-fluid">
@@ -6,9 +6,10 @@
         <h3 class="title">{{ctrl.title}}</h3>
       </div>
       <div class="row cda-row">
+        {{ctrl.materiasSelected}}
         <div class="col-xs-3">
           <label class="label-required" for="legajo">Legajo</label>
-          <input name="legajo" ng-model="ctrl.alumno.legajo" type="text" class="form-control" placeholder="Legajo"
+          <input name="legajo" ng-model="ctrl.cronograma.legajo" type="text" class="form-control" placeholder="Legajo"
             ng-disabled="ctrl.disabled">
             <div class="validate-error ng-cloak" ng-show="ctrl.validateError.legajo">{{ctrl.validateError.text}}</div>
         </div>
@@ -16,20 +17,20 @@
       <div class="row cda-row">
         <div class="col-xs-6">
           <label class="label-required" for="name">Nombre</label>
-          <input name="name" ng-model="ctrl.alumno.name" type="text" class="form-control" placeholder="Nombre"
+          <input name="name" ng-model="ctrl.cronograma.name" type="text" class="form-control" placeholder="Nombre"
             ng-disabled="ctrl.disabled">
             <div class="validate-error  ng-cloak" ng-show="ctrl.validateError.name">{{ctrl.validateError.text}}</div>
         </div>
         
         <div class="col-xs-6">
           <label class="label-required" for="surname">Apellido</label>
-          <input name="surname" ng-model="ctrl.alumno.surname" type="text" class="form-control" placeholder="Apellido"
+          <input name="surname" ng-model="ctrl.cronograma.surname" type="text" class="form-control" placeholder="Apellido"
             ng-disabled="ctrl.disabled">
             <div class="validate-error" ng-show="ctrl.validateError.surname">{{ctrl.validateError.text}}</div>
         </div>
       </div>
       <div class="row cda-row">
-        <div ng-include="'modules/alumno/alumno-crud-materias'"></div>
+        <div ng-include="'modules/cronograma/cronograma-crud-materias'"></div>
       </div>
     </div>
   </div>
@@ -37,9 +38,9 @@
     <div class="container-fluid">
       <div class="row cda-row">
         <div class="col-xs-12">
-          <button ng-if="ctrl.alumno.id && !ctrl.isEditing" class="btn btn-primary" type="button" ng-click="ctrl.setEdit(true)">Editar</button>
+          <button ng-if="ctrl.cronograma.id && !ctrl.isEditing" class="btn btn-primary" type="button" ng-click="ctrl.setEdit(true)">Editar</button>
           <button ng-if="ctrl.isEditing" class="btn btn-primary" type="button" ng-click="ctrl.save()">Guardar</button>
-          <button ng-if="ctrl.alumno.id" class="btn btn-primary" type="button" ng-click="ctrl.delete()">Eliminar</button>
+          <button ng-if="ctrl.cronograma.id" class="btn btn-primary" type="button" ng-click="ctrl.delete()">Eliminar</button>
           <button ng-if="ctrl.isEditing" class="btn btn-warning" type="button" ng-click="ctrl.cancel()">Cancelar</button>
           <button ng-if="!ctrl.isEditing" class="btn btn-warning" type="button" ng-click="ctrl.cancel()">Salir</button>
         </div>

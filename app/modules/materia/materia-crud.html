@@ -1,4 +1,4 @@
-<div ng-form="CRUDMateriasForm" class="modal-container" us-spinner spinner-on="ctrl.isLoading">
+<div ng-form="CRUDMateriasForm" class="modal-container crud" us-spinner spinner-on="ctrl.isLoading">
   <!-- Modal Header -->
   <div class="modal-body">
     <div class="container-fluid">
@@ -7,21 +7,32 @@
       </div>
       <div class="row cda-row">
         <div class="col-xs-6">
-          <label for="key">Clave</label>
-          <input name="key" ng-model="ctrl.materia.key" type="text" class="form-control  is-invalid" ng-required="required" ng-disabled="ctrl.disabled">
-          <div class="invalid-feedback">
-            Debe dar una clave
-          </div>
+          <label class="label-required" for="abreviatura">Codigo</label>
+          <input name="abreviatura" ng-model="ctrl.materia.abreviatura" type="text" class="form-control" placeholder="Código"
+          ng-disabled="ctrl.disabled">
+          <div class="validate-error ng-cloak" ng-show="ctrl.validateError.abreviatura">{{ctrl.validateError.text}}</div>
         </div>
         <div class="col-xs-6">
-          <label for="name">Nombre</label>
-          <input name="name" ng-model="ctrl.materia.name" type="text" class="form-control   is-invalid" placeholder="Nombre" ng-required="required"
+          <label class="label-required" for="name">Nombre</label>
+          <input name="name" ng-model="ctrl.materia.name" type="text" class="form-control" placeholder="Nombre"
             ng-disabled="ctrl.disabled">
-          <div class="invalid-feedback">
-            Debe escribir un nombre
-          </div>
+          <div class="validate-error ng-cloak" ng-show="ctrl.validateError.name">{{ctrl.validateError.text}}</div>
         </div>
       </div>
+      <div class="row cda-row">
+          <div class="col-xs-6">
+            <label class="label-required" for="year">Año</label>
+            <input name="year" ng-model="ctrl.materia.year" type="text" class="form-control" placeholder="Año"
+            ng-disabled="ctrl.disabled">
+            <div class="validate-error ng-cloak" ng-show="ctrl.validateError.year">{{ctrl.validateError.text}}</div>
+          </div>
+          <div class="col-xs-6">
+            <label class="label-required" for="division">División</label>
+            <input name="division" ng-model="ctrl.materia.division" type="text" class="form-control" placeholder="División"
+              ng-disabled="ctrl.disabled">
+            <div class="validate-error ng-cloak" ng-show="ctrl.validateError.division">{{ctrl.validateError.text}}</div>
+          </div>
+        </div>
     </div>
   </div>
   <div class="modal-footer">

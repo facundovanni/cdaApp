@@ -1,28 +1,27 @@
-(function VacationsScope(angular) {
+(function CronogramasScope(angular) {
     'use strict';
-    angular.module('cdApp.materia')
-        .service('Materias', ['ServicesModel', function (ServicesModel) {
+    angular.module('cdApp.cronograma')
+        .service('Cronogramas', ['ServicesModel', function (ServicesModel) {
             var that = this;
-            angular.extend(this, ServicesModel.create('https://orttaller6.herokuapp.com/materias/:id', null, {
+            angular.extend(this, ServicesModel.create('https://orttaller6.herokuapp.com/cronograma/:id', null, {
                 grid: {
+                    url: 'https://orttaller6.herokuapp.com/cronograma/:id',
                     method: 'GET',
                     isArray: true
                 },
                 save: {
                     method: 'POST',
-                    url: 'https://orttaller6.herokuapp.com/materias',
+                    url: 'https://orttaller6.herokuapp.com/cronograma',
                 }
             }));
-
 
             that.getDefaultEntity = function getDefaultEntity() {
                 return {
                     id: undefined,
-                    name: undefined,
                     year: undefined,
                     division: undefined,
-                    abreviatura: undefined
-                };
+                    horarios: []
+                }
             };
         }]);
-})(window.angular);
+})(angular);

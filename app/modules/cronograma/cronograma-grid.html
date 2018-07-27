@@ -1,0 +1,20 @@
+<div ng-controller="CronogramasGridController as ctrl" us-spinner spinner-on="ctrl.isLoading">
+    <div class="container">
+        <div class="row">
+            <h1 class="title">Cronogramas</h1>
+        </div>
+        <div class="row cda-row">
+            <button type="button" class="btn btn-default btn-md btn-new" ng-click="ctrl.openCRUD()">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Agregar nuevo
+            </button>
+        </div>
+        <div class="row">
+            <uib-accordion close-others="oneAtATime">
+                <div uib-accordion-group class="panel-default" heading="{{grid.description}}" ng-repeat="grid in ctrl.grids">
+                        <div ng-if="ctrl.showGrid" ui-grid-selection ui-grid-edit ui-grid="grid" class="grid"></div>
+                </div>
+            </uib-accordion>
+            
+        </div>
+    </div>
+</div>

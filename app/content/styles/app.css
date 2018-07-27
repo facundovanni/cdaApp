@@ -23,7 +23,7 @@ body {
   position: fixed;
   box-shadow: none;
   background-color: #f8f9fa !important;
-  width: 200px;
+  width: 170px;
   height: 100%;
   display: block !important;
   overflow-y: auto;
@@ -103,7 +103,7 @@ body {
 /* Page content */
 
 .main {
-  margin-left: 220px;
+  margin-left: 180px;
   /* Same as the width of the sidenav */
 }
 
@@ -114,3 +114,4 @@ body {
 .btn-new{
   background-color: #83bdf3;
 }
+
