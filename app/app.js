@@ -14,7 +14,8 @@ angular.module('cdApp', [
   'cdApp.services',
   'cdApp.alumno',
   'cdApp.materia',
-  'cdApp.cronograma'
+  'cdApp.cronograma',
+  'cdApp.directives',
 ]).
   config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
