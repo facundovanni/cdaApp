@@ -15,6 +15,7 @@ angular.module('cdApp', [
   'cdApp.alumno',
   'cdApp.materia',
   'cdApp.cronograma',
+  'cdApp.asistencia',
   'cdApp.directives',
 ]).
   config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {

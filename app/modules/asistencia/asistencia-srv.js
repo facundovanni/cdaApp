@@ -1,32 +1,18 @@
-(function CronogramasScope(angular) {
+(function AsistenciasScope(angular) {
     'use strict';
-    angular.module('cdApp.cronograma')
-        .service('Cronogramas', ['ServicesModel', function (ServicesModel) {
+    angular.module('cdApp.asistencia')
+        .service('Asistencias', ['ServicesModel', function (ServicesModel) {
             var that = this;
-            angular.extend(this, ServicesModel.create('https://orttaller6.herokuapp.com/cronograma/:id', null, {
+            angular.extend(this, ServicesModel.create('https://orttaller6.herokuapp.com/asistencia/:id', null, {
                 grid: {
-                    url: 'https://orttaller6.herokuapp.com/cronograma/:id',
+                    url: 'https://orttaller6.herokuapp.com/asistencia/:id',
                     method: 'GET',
                     isArray: true
                 },
                 save: {
                     method: 'POST',
-                    url: 'https://orttaller6.herokuapp.com/cronograma',
+                    url: 'https://orttaller6.herokuapp.com/asistencia',
                 }
             }));
-
-            that.getDefaultEntity = function getDefaultEntity() {
-                return {
-                    id: undefined,
-                    year: undefined,
-                    division: undefined,
-                    horarios: [{ hora: '1', lunes: '', martes: '', miercoles: '', jueves: '' },
-                    { hora: '2', lunes: '', martes: '', miercoles: '', jueves: '' },
-                    { hora: '3', lunes: '', martes: '', miercoles: '', jueves: '' },
-                    { hora: '4', lunes: '', martes: '', miercoles: '', jueves: '' },
-                    { hora: '5', lunes: '', martes: '', miercoles: '', jueves: '' },
-                    { hora: '6', lunes: '', martes: '', miercoles: '', jueves: '' },]
-                }
-            };
         }]);
 })(angular);

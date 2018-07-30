@@ -1,17 +1,33 @@
-<div ng-controller="CronogramasGridController as ctrl" us-spinner spinner-on="ctrl.isLoading">
+<div ng-controller="AsistenciasGridController as ctrl" class="crud" us-spinner spinner-on="ctrl.isLoading">
     <div class="container">
-        <div class="row">
-            <h1 class="title">Cronogramas</h1>
+        <div class="row cda-row">
+            <h1 class="title">Asistencias</h1>
         </div>
         <div class="row cda-row">
-            <button type="button" class="btn btn-default btn-md btn-new" ng-click="ctrl.openCRUD()">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Agregar nuevo
-            </button>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" uib-datepicker-popup="dd/MM/yyyy" ng-model="ctrl.dateSelected.value" is-open="ctrl.dateSelected.opened"
+                        datepicker-options="ctrl.dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="ctrl.openDate()">
+                            <i class="glyphicon glyphicon-calendar"></i>
+                        </button>
+                    </span>
+                </div>
+                <div class="validate-error ng-cloak" ng-show="!ctrl.isAvailable">{{ctrl.dateSelected.error}}</div>
+            </div>
+            <div class="col-md-3">
+                <button ng-if="ctrl.isAvailable" class="btn btn-primary" type="button" ng-click="ctrl.save()">Guardar</button>
+            </div>
+            <div class="col-md-3" ng-if="ctrl.showAlert">
+                <div>{{ctrl.alert}}</div>
+            </div>
         </div>
-        <div class="row">
+        <div class="row cda-row">
             <uib-accordion close-others="oneAtATime">
-                <div uib-accordion-group class="panel-default" heading="{{grid.description}}" ng-repeat="grid in ctrl.grids">
-                    <div ng-if="ctrl.showGrid" ui-grid-selection ui-grid-edit ui-grid="grid" class="grid"></div>
+                <div uib-accordion-group class="panel-default" heading="{{grid.descripcion}}" ng-repeat="grid in ctrl.grids">
+                    <div ng-if="ctrl.showGrid" ui-grid-selection ui-grid-edit ui-grid-cellnav  ui-grid="grid" class="grid"></div>
                 </div>
             </uib-accordion>
 

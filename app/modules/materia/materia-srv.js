@@ -11,6 +11,11 @@
                 save: {
                     method: 'POST',
                     url: 'https://orttaller6.herokuapp.com/materias',
+                },
+                getAlumnosList:{
+                    method:'GET',
+                    url:'https://orttaller6.herokuapp.com/alumnos/materias/:id',
+                    isArray: true
                 }
             }));
 
