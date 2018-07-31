@@ -60,7 +60,6 @@
 
                 that.update = function update() {
                     that.isLoading = true;
-                    that.cronograma.horarios.splice(that.hora - 1, 1, that.materiasSelected);
                     Cronogramas.update(that.cronograma).$promise.then(function onThen(res) {
                         that.modalInstance.close();
                     });

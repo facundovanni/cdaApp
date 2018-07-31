@@ -8,6 +8,10 @@
                     url: 'https://orttaller6.herokuapp.com/cronograma/:id',
                     method: 'GET',
                     isArray: true
+                },
+                get: {
+                    url: 'https://orttaller6.herokuapp.com/cronograma/:id',
+                    method: 'GET'
                 }
             }));
 

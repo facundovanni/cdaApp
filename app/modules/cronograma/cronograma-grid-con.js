@@ -4,8 +4,8 @@
   angular.module('cdApp.cronograma').controller('CronogramasGridController', ['$scope', 'Cronogramas', '$state', '$uibModal',
     function ($scope, Cronogramas, $state, $uibModal) {
       var that = this;
-      that.grids = [];
       that.init = function init() {
+        that.grids = [];
         that.getCronogramas();
       };
 
@@ -79,7 +79,7 @@
         };
 
         $uibModal.open(that.modalInstance).result.then(function success() {
-          that.getCronogramas();
+          that.init();
         });
       }
 
