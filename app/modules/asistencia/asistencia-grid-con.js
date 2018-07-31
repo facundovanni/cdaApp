@@ -38,8 +38,6 @@
 
       that.getAsistencias = function getAsistencias() {
         that.setDateJSON();
-        var auxDate = that.dateSelected.value.toJSON().split('T')[1].splice(1,1,'00:00:00');
-        that.dateJSON.split
         that.isLoading = true;
         Asistencias.get({ date: that.dateJSON }).$promise.then(function (res) {
           that.data = res;
@@ -53,6 +51,9 @@
       };
 
       that.setDateJSON = function setDateJSON(){
+        var auxDate = that.dateSelected.value.toJSON().split('T');
+        auxDate[1] = '00:00:00';
+        that.dateJSON = auxDate.join('T');
       };
 
       that.setConfiguration = function setConfiguration() {
