@@ -13,10 +13,10 @@
                 that.materias = [];
                 that.cronograma = Cronogramas.getDefaultEntity();
 
-                that.cronograma.id = cronogramaId;
+                that.cronograma._id = cronogramaId;
 
                 that.init = function init() {
-                    if (that.cronograma.id) {
+                    if (that.cronograma._id) {
                         that.title = 'Consulta de cronograma';
                         that.setCronograma();
                         that.setEdit(false);
@@ -35,10 +35,8 @@
                 that.setCronograma = function setCronograma() {
                     that.isLoading = true;
                     that.getMaterias().then(function onThen() {
-                        Cronogramas.getById(that.cronograma.id).$promise.then(function onThen(res) {
+                        Cronogramas.get({ id: that.cronograma._id }).$promise.then(function onThen(res) {
                             that.cronograma = res;
-                            that.cronograma.id = res._id;
-                            delete that.cronograma._id;
                             that.materiasSelected = that.cronograma.horarios.find(function find(obj) {
                                 return obj.hora === that.hora;
                             });
@@ -49,7 +47,7 @@
                 };
 
                 that.save = function save() {
-                    that.cronograma.id ? that.update() : that.createNew();
+                    that.cronograma._id ? that.update() : that.createNew();
                 };
 
                 that.createNew = function createNew() {
@@ -70,7 +68,7 @@
                 }
 
                 that.delete = function update() {
-                    Cronogramas.remove(that.cronograma).$promise.then(function onThen(res) {
+                    Cronogramas.remove([{ _id: that.cronograma._id }]).$promise.then(function onThen(res) {
                         that.modalInstance.close();
                     })
                 }

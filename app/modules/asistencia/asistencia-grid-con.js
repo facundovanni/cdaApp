@@ -37,18 +37,22 @@
       }
 
       that.getAsistencias = function getAsistencias() {
-        that.dateJSON = that.dateSelected.value.toJSON();
+        that.setDateJSON();
+        var auxDate = that.dateSelected.value.toJSON().split('T')[1].splice(1,1,'00:00:00');
+        that.dateJSON.split
         that.isLoading = true;
-        Asistencias.getById(that.dateJSON).$promise.then(function (res) {
+        Asistencias.get({ date: that.dateJSON }).$promise.then(function (res) {
           that.data = res;
-          that.data.date = that.dateJSON;
-          that.data.id = res._id;
-          if (!that.data.id) {
+          that.data.date = that.dateSelected.value;
+          if (!that.data._id) {
             that.getDefault();
           } else {
             that.setConfiguration();
           }
         });
+      };
+
+      that.setDateJSON = function setDateJSON(){
       };
 
       that.setConfiguration = function setConfiguration() {
@@ -140,7 +144,7 @@
         };
         return grid;
       };
-      that.setActive = function setActive(row){
+      that.setActive = function setActive(row) {
         return row.entity.presente = !row.entity.presente;
       };
 
@@ -156,7 +160,7 @@
       };
 
       that.save = function save() {
-        that.data.id ? that.update() : that.createNew();
+        that.data._id ? that.update() : that.createNew();
 
       };
       that.createNew = function createNew() {

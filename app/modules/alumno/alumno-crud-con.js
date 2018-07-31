@@ -13,10 +13,10 @@
                 that.selectedMaterias = [];
                 that.alumno = Alumnos.getDefaultEntity();
 
-                that.alumno.id = alumnoId;
+                that.alumno._id = alumnoId;
 
                 that.init = function init() {
-                    if (that.alumno.id) {
+                    if (that.alumno._id) {
                         that.title = 'Consulta de alumno';
                         that.setAlumno();
                         that.setEdit(false);
@@ -34,10 +34,8 @@
 
                 that.setAlumno = function setAlumno() {
                     that.isLoading = true;
-                    Alumnos.getById(that.alumno.id).$promise.then(function onThen(res) {
+                    Alumnos.get({ id: that.alumno._id }).$promise.then(function onThen(res) {
                         that.alumno = res;
-                        that.alumno.id = res._id;
-                        delete that.alumno._id;
                         that.getMaterias();
                     }).finally(function onFinally() {
                         that.isLoading = false;
@@ -48,7 +46,7 @@
                     that.setMaterias();
                     if (that.validate()) {
 
-                        that.alumno.id ? that.update() : that.createNew();
+                        that.alumno._id ? that.update() : that.createNew();
                     }
                 };
 
@@ -68,8 +66,8 @@
                     that.isLoading = false;
                 }
 
-                that.delete = function update() {
-                    Alumnos.remove(that.alumno).$promise.then(function onThen(res) {
+                that.delete = function deleteAlumno() {
+                    Alumnos.remove([{ _id: that.alumno._id }]).$promise.then(function onThen(res) {
                         that.modalInstance.close();
                     })
                 }
@@ -98,12 +96,12 @@
                         var i = 1;
                         res.map(function onMap(obj) {
                             that.getDataMaterias.push({ id: i, label: obj.name, idMat: obj._id });
-                            if(that.alumno.materias.length > 0){
-                                var aux = that.alumno.materias.find(function onFind(el){
+                            if (that.alumno.materias.length > 0) {
+                                var aux = that.alumno.materias.find(function onFind(el) {
                                     return obj._id === el.id;
                                 });
-                                if (aux){
-                                    that.selectedMaterias.push({id: i});
+                                if (aux) {
+                                    that.selectedMaterias.push({ id: i });
                                 }
                             }
                             i++;
@@ -120,7 +118,7 @@
                         var aux = that.getDataMaterias.find(function find(el) {
                             return obj.id === el.id;
                         });
-                        that.alumno.materias.push( {id: aux.idMat, name: aux.label});
+                        that.alumno.materias.push({ id: aux.idMat, name: aux.label });
                     });
                 };
 

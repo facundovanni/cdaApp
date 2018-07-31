@@ -1,8 +1,8 @@
 (function AlumnosGridScope(angular) {
   'use strict';
 
-  angular.module('cdApp.alumno').controller('AlumnosGridController', ['$scope', 'Alumnos', '$state', '$uibModal',
-    function ($scope, Alumnos, $state, $uibModal) {
+  angular.module('cdApp.alumno').controller('AlumnosGridController', ['$scope', 'Alumnos', '$uibModal',
+    function ($scope, Alumnos, $uibModal) {
       var that = this;
 
       that.init = function init() {

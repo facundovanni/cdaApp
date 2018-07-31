@@ -37,9 +37,9 @@
     <div class="container-fluid">
       <div class="row cda-row">
         <div class="col-xs-12">
-          <button ng-if="ctrl.alumno.id && !ctrl.isEditing" class="btn btn-primary" type="button" ng-click="ctrl.setEdit(true)">Editar</button>
+          <button ng-if="ctrl.alumno._id && !ctrl.isEditing" class="btn btn-primary" type="button" ng-click="ctrl.setEdit(true)">Editar</button>
           <button ng-if="ctrl.isEditing" class="btn btn-primary" type="button" ng-click="ctrl.save()">Guardar</button>
-          <button ng-if="ctrl.alumno.id" class="btn btn-primary" type="button" ng-click="ctrl.delete()">Eliminar</button>
+          <button ng-if="ctrl.alumno._id" class="btn btn-primary" type="button" ng-click="ctrl.delete()">Eliminar</button>
           <button ng-if="ctrl.isEditing" class="btn btn-warning" type="button" ng-click="ctrl.cancel()">Cancelar</button>
           <button ng-if="!ctrl.isEditing" class="btn btn-warning" type="button" ng-click="ctrl.cancel()">Salir</button>
         </div>

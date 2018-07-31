@@ -5,12 +5,7 @@
     angular.module('cdApp.materia', ['ngResource'])
         .config(['$routeProvider', function ($routeProvider) {
             $routeProvider.when('/materia/index', {
-                templateUrl: 'modules/materia/materia-grid.html',
-                controller: 'MateriasGridController',
-            });
-            $routeProvider.when('/materia/create', {
-                templateUrl: 'modules/materia/materia-crud.html',
-                controller: 'MateriasCRUDController',
+                templateUrl: 'modules/materia/materia-grid.html'
             });
         }]);
 })(angular);
