@@ -16,7 +16,7 @@
                 that.alumno._id = alumnoId;
 
                 that.init = function init() {
-                    if (that.isLogged()) {
+                    if (that.setLogged()) {
                         if (that.alumno._id) {
                             that.title = 'Consulta de alumno';
                             that.setAlumno();
