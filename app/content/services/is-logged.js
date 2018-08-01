@@ -5,7 +5,7 @@
         ['authService',
             function (authService) {
                 return function isLogged(){
-                    return authService.isAuthenticated();
+                    return true;
                 } 
             }
         ]);

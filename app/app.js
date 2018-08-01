@@ -7,7 +7,7 @@
     'ngRoute', 'ngAnimate', 'ngSanitize',
     'ngTouch', 'ui.grid',
     'auth0.auth0', 'angular-jwt', 'ui.router',
-    'ui.bootstrap', 'angularSpinner', 'angularjs-dropdown-multiselect','ngFileSaver',
+    'ui.bootstrap', 'angularSpinner', 'angularjs-dropdown-multiselect',
     'cdApp.services',
     'cdApp.home',
     'cdApp.alumno',
@@ -57,13 +57,13 @@
       // Put the authService on $rootScope so its methods
       // can be accessed from the nav bar
       that.logout = function logout(){
-        authService.logout();
+        //authService.logout();
         that.isLogged = false;
         $state.go('home-login');
       }
       
       // Process the auth token if it exists and fetch the profile
-      authService.handleParseHash();
+      //authService.handleParseHash();
 
       that.setLogged = function islogged() {
         that.isLogged = isLogged();
