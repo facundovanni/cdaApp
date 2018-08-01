@@ -3,7 +3,7 @@
 
     angular.module('cdApp.alumno').controller('AlumnosCRUDController',
         ['$scope', 'Alumnos', '$uibModalInstance', 'alumnoId', 'Materias',
-            function ($scope, Alumnos, $uibModalInstance, alumnoId, Materias, isLogged) {
+            function ($scope, Alumnos, $uibModalInstance, alumnoId, Materias) {
                 var that = this;
                 that.modalInstance = $uibModalInstance;
                 that.validateError = {
@@ -16,16 +16,14 @@
                 that.alumno._id = alumnoId;
 
                 that.init = function init() {
-                    if (that.isLogged()) {
-                        if (that.alumno._id) {
-                            that.title = 'Consulta de alumno';
-                            that.setAlumno();
-                            that.setEdit(false);
-                        } else {
-                            that.title = 'Alta de alumno';
-                            that.getMaterias();
-                            that.setEdit(true);
-                        }
+                    if (that.alumno._id) {
+                        that.title = 'Consulta de alumno';
+                        that.setAlumno();
+                        that.setEdit(false);
+                    } else {
+                        that.title = 'Alta de alumno';
+                        that.getMaterias();
+                        that.setEdit(true);
                     }
                 };
 

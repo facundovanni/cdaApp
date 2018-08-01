@@ -14,7 +14,7 @@
                 reporte: {
                     url: 'https://orttaller6.herokuapp.com/reporte?filter=dia&id=:id',
                     method: 'GET',
-                    responseType: 'blob',
+                    responseType: 'arraybuffer',
                     param: {
                         id: '@id'
                     },

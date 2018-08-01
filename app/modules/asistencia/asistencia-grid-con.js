@@ -188,7 +188,7 @@
         var a = document.createElement("a");
         document.body.appendChild(a);
         Asistencias.reporte({ id: that.dateJSON }).$promise.then(function (result) {
-          var file = new Blob([result.data], { type: 'text/pdf; charset=utf-8' });
+          var file = new Blob([result], { type: 'text/pdf; charset=utf-8' });
           var fileURL = window.URL.createObjectURL(file);
           a.href = fileURL;
           a.download = fileName;

@@ -7,7 +7,7 @@
     'ngRoute', 'ngAnimate', 'ngSanitize',
     'ngTouch', 'ui.grid',
     'auth0.auth0', 'angular-jwt', 'ui.router',
-    'ui.bootstrap', 'angularSpinner', 'angularjs-dropdown-multiselect','ngFileSaver',
+    'ui.bootstrap', 'angularSpinner', 'angularjs-dropdown-multiselect',
     'cdApp.services',
     'cdApp.home',
     'cdApp.alumno',
