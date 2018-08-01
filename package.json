@@ -50,6 +50,7 @@
         "angular-ui-grid": "^4.6.2",
         "angularjs-dropdown-multiselect": "^2.0.0-beta.10",
         "auth0": "^2.11.0",
+        "auth0-js": "^9.7.3",
         "bootstrap": "^4.1.1",
         "feather-icons": "^4.7.3",
         "http": "0.0.0",
