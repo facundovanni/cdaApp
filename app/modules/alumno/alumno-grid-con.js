@@ -1,12 +1,14 @@
 (function AlumnosGridScope(angular) {
   'use strict';
 
-  angular.module('cdApp.alumno').controller('AlumnosGridController', ['$scope', 'Alumnos', '$uibModal',
-    function ($scope, Alumnos, $uibModal) {
+  angular.module('cdApp.alumno').controller('AlumnosGridController', ['$scope', 'Alumnos', '$uibModal', '$state','isLogged',
+    function ($scope, Alumnos, $uibModal, $state, isLogged) {
       var that = this;
 
       that.init = function init() {
-        that.getAlumnos();
+        if(that.setLogged()){
+          that.getAlumnos();
+        }
       };
 
       that.getAlumnos = function getAlumnos() {
@@ -61,6 +63,13 @@
         });
       }
 
+      that.setLogged = function setLogged() {
+        that.isLogged = isLogged();
+        if (!that.isLogged) {
+          $state.go('home-login');
+        }
+        return that.isLogged;
+      };
       that.init();
     }
   ]);

@@ -1,12 +1,14 @@
 (function CronogramasGridScope(angular) {
   'use strict';
 
-  angular.module('cdApp.cronograma').controller('CronogramasGridController', ['$scope', 'Cronogramas', '$state', '$uibModal',
-    function ($scope, Cronogramas, $state, $uibModal) {
+  angular.module('cdApp.cronograma').controller('CronogramasGridController', ['$scope', 'Cronogramas', '$state', '$uibModal', 'isLogged',
+    function ($scope, Cronogramas, $state, $uibModal, isLogged) {
       var that = this;
       that.init = function init() {
-        that.grids = [];
-        that.getCronogramas();
+        if (that.setLogged()) {
+          that.grids = [];
+          that.getCronogramas();
+        };
       };
 
       that.getCronogramas = function getCronogramas() {
@@ -82,6 +84,14 @@
           that.init();
         });
       }
+
+      that.setLogged = function setLogged() {
+        that.isLogged = isLogged();
+        if (!that.isLogged) {
+          $state.go('home-login');
+        }
+        return that.isLogged;
+      };
 
       that.init();
     }

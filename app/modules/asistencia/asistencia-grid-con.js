@@ -1,7 +1,7 @@
 (function AsistenciasGridScope(angular) {
   'use strict';
-  angular.module('cdApp.asistencia').controller('AsistenciasGridController', ['$scope', 'Asistencias', '$state', '$uibModal', 'Materias', '$q',
-    function AsistenciasGridController($scope, Asistencias, $state, $uibModal, Materias, $q) {
+  angular.module('cdApp.asistencia').controller('AsistenciasGridController', ['$scope', 'Asistencias', '$uibModal', 'Materias', '$q', '$state', 'isLogged',
+    function AsistenciasGridController($scope, Asistencias, $uibModal, Materias, $q, $state, isLogged) {
       var that = this;
 
       that.dateSelected = {
@@ -26,7 +26,6 @@
         if (newValue !== oldValue) {
           that.init();
         };
-
       });
 
 
@@ -150,14 +149,16 @@
       };
 
       that.init = function init() {
-        that.showAlert = false;
-        var date = { date: that.dateSelected.value, mode: 'day' };
-        that.isAvailable = !(that.dateOptions.dateDisabled(date));
-        if (that.isAvailable) {
-          that.grids = [];
-          that.materias = [];
-          that.getAsistencias();
-        };
+        if(that.setLogged()){
+          that.showAlert = false;
+          var date = { date: that.dateSelected.value, mode: 'day' };
+          that.isAvailable = !(that.dateOptions.dateDisabled(date));
+          if (that.isAvailable) {
+            that.grids = [];
+            that.materias = [];
+            that.getAsistencias();
+          };
+        }
       };
 
       that.save = function save() {
@@ -180,6 +181,14 @@
           that.showAlert = true;
         });
         that.isLoading = false;
+      };
+
+      that.setLogged = function setLogged() {
+        that.isLogged = isLogged();
+        if (!that.isLogged) {
+          $state.go('home-login');
+        }
+        return that.isLogged;
       };
 
       that.init();

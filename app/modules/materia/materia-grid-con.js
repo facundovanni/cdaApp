@@ -1,14 +1,17 @@
 (function MateriaGridScope(angular) {
   'use strict';
 
-  angular.module('cdApp.materia').controller('MateriasGridController', ['$scope', 'Materias', '$state', '$uibModal',
-    function ($scope, Materias, $state, $uibModal) {
+  angular.module('cdApp.materia').controller('MateriasGridController', ['$scope', 'Materias', '$state', '$uibModal','isLogged',
+    function ($scope, Materias, $state, $uibModal, isLogged) {
       var that = this;
 
       that.init = function init() {
-        that.getMaterias();
+        if(that.setLogged()){
+          that.getMaterias();
+        };
+        
       };
- 
+
       that.getMaterias = function getMaterias() {
         that.isLoading = true;
         Materias.grid().$promise.then(function (res) {
@@ -56,7 +59,14 @@
         $uibModal.open(that.modalInstance).result.then(function success() {
           that.getMaterias();
         });
-      }
+      };
+      that.setLogged = function setLogged() {
+        that.isLogged = isLogged();
+        if (!that.isLogged) {
+          $state.go('home-login');
+        }
+        return that.isLogged;
+      };
 
       that.init();
     }
