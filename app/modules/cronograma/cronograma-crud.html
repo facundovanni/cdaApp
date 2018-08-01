@@ -5,6 +5,18 @@
       <div class="row cda-row">
         <h3 class="title">{{ctrl.title}}</h3>
       </div>
+      <div class="row cda-row">
+        <div class="col-xs-3">
+          <label class="label-required" for="year">Año</label>
+          <input name="year" ng-model="ctrl.cronograma.year" type="text" class="form-control" placeholder="Año" ng-disabled="ctrl.disabled">
+          <div class="validate-error ng-cloak" ng-show="ctrl.validateError.year">{{ctrl.validateError.text}}</div>
+        </div>
+        <div class="col-xs-3">
+          <label class="label-required" for="division">Division</label>
+          <input name="division" ng-model="ctrl.cronograma.division" type="text" class="form-control" placeholder="División" ng-disabled="ctrl.disabled">
+          <div class="validate-error ng-cloak" ng-show="ctrl.validateError.division">{{ctrl.validateError.text}}</div>
+        </div>
+      </div>
       <div class="row cda-row" ng-show="!ctrl.hora" ng-repeat="horario in ctrl.cronograma.horarios">
         <div class="col-lg-2">
           <label class="" for="hora">Hora</label>

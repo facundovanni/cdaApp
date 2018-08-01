@@ -20,6 +20,9 @@
             <div class="col-md-3">
                 <button ng-if="ctrl.isAvailable" class="btn btn-primary" type="button" ng-click="ctrl.save()">Guardar</button>
             </div>
+            <div class="col-md-3">
+                    <button ng-if="ctrl.isAvailable" class="btn btn-primary" type="button" ng-click="ctrl.getReport()">Obtener Reporte</button>
+                </div>
             <div class="col-md-3" ng-if="ctrl.showAlert">
                 <div>{{ctrl.alert}}</div>
             </div>

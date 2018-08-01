@@ -77,7 +77,8 @@
                 };
 
                 that.validate = function validate() {
-                    return that.validateLegajo() && that.validateName() && that.validateSurname();
+                    return that.validateLegajo() && that.validateName() && that.validateSurname()
+                    && that.validateDivision() && that.validateYear();
                 };
 
                 that.validateLegajo = function validateLegajo() {
@@ -88,6 +89,12 @@
                 };
                 that.validateSurname = function validateSurname() {
                     return !(that.validateError.surname = !that.cronograma.surname);
+                };
+                that.validateYear = function validateYear() {
+                    return !(that.validateError.year = !that.cronograma.year);
+                };
+                that.validateDivision = function validateDivision() {
+                    return !(that.validateError.division = !that.cronograma.division);
                 };
 
                 that.getMaterias = function getMaterias() {

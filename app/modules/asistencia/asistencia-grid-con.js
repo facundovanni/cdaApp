@@ -49,7 +49,7 @@
         });
       };
 
-      that.setDateJSON = function setDateJSON(){
+      that.setDateJSON = function setDateJSON() {
         var auxDate = that.dateSelected.value.toJSON().split('T');
         auxDate[1] = '00:00:00';
         that.dateJSON = auxDate.join('T');
@@ -149,7 +149,7 @@
       };
 
       that.init = function init() {
-        if(that.setLogged()){
+        if (that.setLogged()) {
           that.showAlert = false;
           var date = { date: that.dateSelected.value, mode: 'day' };
           that.isAvailable = !(that.dateOptions.dateDisabled(date));
@@ -182,6 +182,19 @@
         });
         that.isLoading = false;
       };
+
+      that.getReport = function getReport() {
+        var fileName = "reporte" + that.dateJSON + ".pdf";
+        var a = document.createElement("a");
+        document.body.appendChild(a);
+        Asistencias.reporte({ id: that.dateJSON }).$promise.then(function (result) {
+          var file = new Blob([result.data], { type: 'text/pdf; charset=utf-8' });
+          var fileURL = window.URL.createObjectURL(file);
+          a.href = fileURL;
+          a.download = fileName;
+          a.click();  
+        });
+      }
 
       that.setLogged = function setLogged() {
         that.isLogged = isLogged();
