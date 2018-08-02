@@ -187,7 +187,7 @@
         var fileName = "reporte" + that.dateJSON + ".pdf";
         var a = document.createElement("a");
         document.body.appendChild(a);
-        Asistencias.report(that.dateJSON).$promise.then(function (result) {
+        Asistencias.reporte(that.dateJSON).$promise.then(function (result) {
           var file = new Blob([result.data], { type: 'text/pdf; charset=utf-8' });
           var fileURL = window.URL.createObjectURL(file);
           a.href = fileURL;
